@@ -1,0 +1,196 @@
+/* styles-td.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+
+    background-color: #ffffff;
+    padding: 1em 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #f76c6c;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+h1 a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+h1 a:hover {
+    color: #e74c3c;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.encadre {
+    border: 2px solid #000; /* Bordure noire de 2 pixels */
+    padding: 20px; /* Espace intérieur de 20 pixels */
+    margin: 30px; /* Espace extérieur de 20 pixels */
+    border-radius: 40px; /* Coins arrondis de 10 pixels */
+    background-color: #dadada;
+}
+
+header .encadre{
+
+}
+
+.comment {
+    color: #95a5a6;
+    font-style: italic;
+    display: block;
+    margin-top: 10px;
+}
+
+code {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    border-radius: 5px;
+    padding: 2px 5px;
+    font-size: 1em;
+}
+
+nav ul {
+    list-style: none;
+    padding-left: 0;
+    text-align: center;
+    display:flex;
+    justify-content:center;
+}
+
+nav ul li {
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+
+nav ul li:hover {
+    background-color: #c7cef5;
+}
+
+nav ul li:not(:first-child) {
+    border-left-width: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000000;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+footer, main {
+    width: 600px;
+}
+
+header{
+    width: 1000px
+}
+
+footer {
+    background-color: #f8f9fa;
+    padding: 1em 0;
+}
+
+footer p {
+    border: 1px solid black;
+    text-align:right;
+    /* width:600px; */
+    padding-right:1em;
+    margin: 0;
+}
+
+/* https://philipwalton.github.io/solved-by-flexbox/demos/input-add-ons/ */
+.InputAddOn {
+    display: flex;
+    margin-bottom: 1.5em;
+}
+
+.InputAddOn-field {
+    flex: 1;
+}
+.InputAddOn-field:not(:first-child) {
+    border-left: 0;
+}
+.InputAddOn-field:not(:last-child) {
+    border-right: 0;
+}
+
+.InputAddOn-item {
+    background-color: rgba(147, 128, 108, 0.1);
+    color: #666666;
+    font: inherit;
+    font-weight: normal;
+}
+
+.InputAddOn-field,
+.InputAddOn-item {
+    border: 1px solid rgba(147, 128, 108, 0.25);
+    padding: 0.5em 0.75em;
+}
+.InputAddOn-field:first-child,
+.InputAddOn-item:first-child {
+    border-radius: 2px 0 0 2px;
+}
+.InputAddOn-field:last-child,
+.InputAddOn-item:last-child {
+    border-radius: 0 2px 2px 0;
+}
+
+/* Bootstrap alerts */
+/* https://getbootstrap.com/docs/3.4/components/#alerts */
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+.alert-info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+.alert-warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
