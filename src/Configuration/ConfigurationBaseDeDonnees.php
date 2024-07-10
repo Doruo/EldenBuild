@@ -8,7 +8,7 @@ abstract class ConfigurationBaseDeDonnees{
     // pour accéder à webinfo depuis l'extérieur
     static private array $configurationBaseDeDonnees = array(
         'nomHote' => 'localhost',
-        'nomBaseDeDonnees' => 'HAYE',
+        'nomBaseDeDonnees' => 'eldenbuild',
         'port' => '3306',
         'login' => 'root',
         'motDePasse' => '!Fp!d].d7N]Ir5]C'

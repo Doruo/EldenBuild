@@ -28,7 +28,7 @@ else if (PreferenceControleur::existe())
     $controleur = PreferenceControleur::lire();
 
 // sinon, par défaut
-else $controleur = "voiture";
+else $controleur = "utilisateur";
 
 
 $nomDeClasseControleur = "App\Covoiturage\Controleur\Controleur" . ucfirst($controleur);

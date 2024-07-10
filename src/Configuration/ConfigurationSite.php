@@ -4,7 +4,7 @@ abstract class ConfigurationSite
 {
     private static array $configurationSite = array(
         'dureeExpiration' => 3600,
-        'URLAbsolue' => "http://marchaye.freeboxos.fr/A2/DevWeb/TD/TDCOVOITURAGE/src/vue/web/controleurFrontal.php",
+        'URLAbsolue' => "http://eldenring.eldenbuild.com/src/vue/web/controleurFrontal.php",
         'debug' => false
     );
 
