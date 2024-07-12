@@ -1,0 +1,113 @@
+/* styles-td.css */
+
+/* FONTS */
+
+@font-face {
+    font-family: 'elden-ring';
+    src: url('/ressources/fonts/Mantinia Regular.otf');
+}
+
+@font-face {
+    font-family: 'dark-souls';
+    src: url('/ressources/fonts/OptimusPrincepsSemiBold.ttf');
+}
+
+
+/* BODY */
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+
+    /* BACKGROUND */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: background-image 3s;
+}
+
+/* TITRE PRINCIPALE */
+
+#titre-princiale{
+    font-size: 150px;
+}
+
+#titre-princiale-menu{
+    font-size: 30px;
+}
+
+#titre-princiale, #titre-princiale-menu{
+    color: #d5d51f;
+    font-family: 'elden-ring', serif;
+}
+
+/* TEXTS */
+
+h1 {
+    color: #3498db;
+    text-align: center;
+}
+
+h3{
+    text-align: center;
+}
+
+h1, h2,#sous-titre{
+    font-family: 'dark-souls', serif;
+}
+
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1rem;
+}
+
+/* FOOTER */
+
+footer {
+    background-color: #343a40; /* Same as bg-dark in Bootstrap */
+    color: #ffffff; /* Text color white */
+    padding: 1%;
+    text-align: center;
+    margin: 8%;
+}
+
+/* Bootstrap alerts */
+/* https://getbootstrap.com/docs/3.4/components/#alerts */
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+.alert-info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+.alert-warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
