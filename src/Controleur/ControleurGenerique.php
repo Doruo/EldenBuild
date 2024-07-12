@@ -17,9 +17,6 @@ abstract class ControleurGenerique {
     protected abstract static function afficherFormulaireMiseAJour();
     protected abstract static function mettreAJour();
 
-    /** ------------------- DELETE ------------------- */
-    protected abstract static function supprimer();
-
     /** ------------------- AFFICHAGE VUES ------------------- */
     protected static function afficherVue(string $cheminVue, array $parametres = []): void
     {
@@ -28,6 +25,17 @@ abstract class ControleurGenerique {
 
         require __DIR__ . "/../vue/$cheminVue"; // Charge la vue
     }
+
+    protected static function afficherVueGenerale(array $parametres = []): void
+    {
+        $messagesFlash = MessageFlash::lireTousMessages();
+        extract($parametres); // Crée des variables à partir du tableau $parametres
+        echo("AFKAPKFGAP");
+        require __DIR__ . "web/vueGenerale.php"; // Charge la vue
+    }
+
+    /** ------------------- DELETE ------------------- */
+    protected abstract static function supprimer();
 
     /** ------------------- MESSAGES FLASHS ------------------- */
     public static function redirectionVersURL(string $url) : void{

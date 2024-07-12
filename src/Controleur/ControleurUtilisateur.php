@@ -7,24 +7,27 @@ use App\Covoiturage\Lib\MotDePasse;
 use App\Covoiturage\Lib\VerificationEmail;
 use App\Covoiturage\Modele\DataObject\Utilisateur;
 use App\Covoiturage\Modele\Repository\UtilisateurRepository;
-use Random\RandomException;
 
 class ControleurUtilisateur extends ControleurGenerique
 {
+    protected static function home() : void{
+        self::afficherVueGenerale();
+    }
 
     /** ------------------- READ ------------------- */
+
     public static function afficherListe(): void
     {
-        $utilisateurs = (new UtilisateurRepository())->recuperer();  //appel au modèle pour gérer la BD
-
+        //$utilisateurs = (new UtilisateurRepository())->recuperer();  //appel au modèle pour gérer la BD
+        /*
         if (!$utilisateurs) {
             MessageFlash::ajouter("warning","Aucun Utilisateur");
             self::redirectionVersURL('controleurFrontal.php?action=afficherListe&controleur=utilisateur');
             return;
-        }
+        }*/
 
         $parametres = array(
-            "utilisateurs" => $utilisateurs,
+            //"utilisateurs" => $utilisateurs,
             "pagetitle" => "Liste des Utilisateurs",
             "cheminVueBody" => "/../utilisateur/liste.php"
         );
