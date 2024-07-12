@@ -1,149 +1,82 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="../../../ressources/css/stylesTD.css">
-    <link rel="icon" type="image/x-icon" href="/ressources/images/favicon.ico">
-    <title>
-        <?php
-        use App\Covoiturage\Lib\ConnexionUtilisateur;
-        /** @var $pagetitle */echo $pagetitle; ?>
-    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Elden Build</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link href="/ressources/css/styles.css" rel="stylesheet">
+    <script defer="defer" src="/ressources/js/scripts.js"></script>
+
 </head>
 
 <body>
 
-<header>
-    <?php if (App\Covoiturage\Configuration\ConfigurationSite::getDebug()) echo "<div><h2>MODE DEBUG ACTIF (SITE EN CONSTRUCTION)</h2></div>";?>
-    <nav>
-        <ul>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-            <!-- HOME -->
+    <a id="titre-princiale-menu" class="navbar-brand" href="#">Elden Build</a>
 
-            <li>
-                <a href="controleurFrontal.php?action=afficherListe">
-                    <img src="../../../ressources/images/home.png" alt="home" />
-                </a>
-            </li>
+    <button class="navbar-toggler" type="button">
+        <span ></span>
+    </button>
 
-            <!-- VOITURES -->
-
-            <li>
-                <a href="controleurFrontal.php?action=afficherListe&controleur=voiture">
-                    Voitures
-                </a>
-            </li>
-
-            <!-- UTILISATEURS -->
-
-            <li>
-                <a href="controleurFrontal.php?action=afficherListe&controleur=utilisateur">
-                    Utilisateurs
-                </a>
-            </li>
-
-            <!-- TRAJETS -->
-
-            <li>
-                <a href="controleurFrontal.php?action=afficherListe&controleur=trajet">
-                    Trajets
-                </a>
-            </li>
-
-            <!-- INSCRIPTION -->
-
-            <?php
-            if (!ConnexionUtilisateur::estConnecte() || ConnexionUtilisateur::estAdministrateur())
-                echo '
-                    <li>
-                        <a href="controleurFrontal.php?action=afficherFormulaireCreation&controleur=utilisateur" id="add-user">
-                            <img src="../../../ressources/images/add-user.png" alt="Inscription" />
-                        </a>
-                    </li>';
-            ?>
-
-            <!-- CONNEXION -->
-
-            <?php
-            if (!ConnexionUtilisateur::estConnecte())
-                echo '            
-                <li>
-                    <a href="controleurFrontal.php?action=afficherFormulaireConnexion&controleur=utilisateur" id="enter">
-                        <img src="../../../ressources/images/enter.png" alt="Connexion" />
-                    </a>
-                </li>';
-            ?>
-
-            <!-- DECONNEXION -->
-
-            <?php
-            if (ConnexionUtilisateur::estConnecte())
-                echo '            
-                <li>
-                    <a href="controleurFrontal.php?action=deconnecter&controleur=utilisateur" id="logout">
-                        <img src="../../../ressources/images/logout.png" alt="logout" />
-                    </a>
-                </li>';
-            ?>
-
-            <!-- PREFERENCE -->
-
-            <li>
-                <a href="controleurFrontal.php?action=afficherFormulairePreference" id="heart-link">
-                    <img src="../../../ressources/images/heart.png" alt="Préférences" />
-                </a>
-            </li>
-
-            <!-- QUITTER -->
-
-            <li>
-                <a href="/" id="quit">
-                    <img src="../../../ressources/images/quit.png" alt="Préférences" />
-                </a>
-            </li>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="/src/vue/web/controleurFrontal.php?action=home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Builds</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
         </ul>
-
-    </nav>
-
-    <!-- MESSAGES FLASH -->
-
-    <?php
-    if (ConnexionUtilisateur::estConnecte()) {
-        echo "<div class=\"encadre\"> 
-        <h2>".ConnexionUtilisateur::getLoginUtilisateurConnecte()."</h2>";
-        if (ConnexionUtilisateur::estAdministrateur()) echo "<h2>Admin</h2>";
-        echo "</div> ";
-    } else echo "<h2>Non Connecté</h2>"
-    ?>
-
-    <div>
-        <?php
-        /** @var string[][] $messagesFlash */
-        foreach($messagesFlash as $type => $messagesFlashPourUnType)
-        {
-            // $type est l'une des valeurs suivantes : "success", "info", "warning", "danger"
-            // $messagesFlashPourUnType est la liste des messages flash d'un type
-
-            foreach ($messagesFlashPourUnType as $messageFlash) {
-                echo <<< HTML
-            <div class="alert alert-$type">
-               $messageFlash
-            </div>
-            HTML;
-            }
-        }
-        ?>
     </div>
 
-</header>
+</nav>
 
-<main>
-    <?php /** @var $cheminVueBody */ require __DIR__ . $cheminVueBody ?>
-</main>
+<div id="conteneurActions" class="container mt-5">
 
-<footer>
-    <p>Site de covoiturage de Marc Haye</p>
+    <h1 id="titre-princiale" >Elden Build</h1>
+    <h3 id="sous-titre">Creer et partager vos builds pour Elden Ring.</h3>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+
+                    <h2 class="card-title">Creer un Build</h2>
+                    <p class="card-text">Commencez à creer votre build personnalise.</p>
+                    <a href="#" class="btn btn-primary">Creer</a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Consulter les Builds</h2>
+                    <p class="card-text">Explorez les builds partages par d'autres joueurs.</p>
+                    <a href="#" class="btn btn-primary">Consulter</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Rechercher des Builds</h2>
+                    <p class="card-text">Trouvez des builds en fonction de vos preferences.</p>
+                    <a href="#" class="btn btn-primary">Rechercher</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer class="bg-dark">
+    &copy; 2024 Elden Build. Tous droits reserves.
 </footer>
 
 </body>
