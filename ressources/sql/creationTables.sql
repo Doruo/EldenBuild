@@ -1,58 +1,59 @@
-CREATE TABLE IF NOT EXISTS Users (
+CREATE TABLE Users(
                       login VARCHAR(50),
                       mdpHache VARCHAR(256) NOT NULL,
                       email VARCHAR(50) NOT NULL,
                       emailAVerifier VARCHAR(50) NOT NULL,
                       nonce VARCHAR(50) NOT NULL,
+                      estAdmin BOOLEAN,
                       PRIMARY KEY(login)
 );
 
-CREATE TABLE IF NOT EXISTS Classes(
+CREATE TABLE Classes(
                         nomClasse VARCHAR(50),
                         PRIMARY KEY(nomClasse)
 );
 
-CREATE TABLE IF NOT EXISTS EquipLoad(
+CREATE TABLE EquipLoad(
                           equipLoad VARCHAR(50),
                           PRIMARY KEY(equipLoad)
 );
 
-CREATE TABLE IF NOT EXISTS Armor(
+CREATE TABLE Armor(
                       idArmor VARCHAR(50),
                       PRIMARY KEY(idArmor)
 );
 
-CREATE TABLE IF NOT EXISTS Ammos(
+CREATE TABLE Ammos(
                       idAmmo VARCHAR(50),
                       PRIMARY KEY(idAmmo)
 );
 
-CREATE TABLE IF NOT EXISTS Talismans(
+CREATE TABLE Talismans(
                           idTalisman VARCHAR(50),
                           PRIMARY KEY(idTalisman)
 );
 
-CREATE TABLE IF NOT EXISTS MagicSpells(
+CREATE TABLE MagicSpells(
                             idMagicSpell VARCHAR(50),
                             PRIMARY KEY(idMagicSpell)
 );
 
-CREATE TABLE IF NOT EXISTS Weapons(
+CREATE TABLE Weapons(
                         idWeapon VARCHAR(50),
                         PRIMARY KEY(idWeapon)
 );
 
-CREATE TABLE IF NOT EXISTS Tools(
+CREATE TABLE Tools(
                       idTool VARCHAR(50),
                       PRIMARY KEY(idTool)
 );
 
-CREATE TABLE IF NOT EXISTS AshesOfWar(
+CREATE TABLE AshesOfWar(
                            idAshOfWar VARCHAR(50),
                            PRIMARY KEY(idAshOfWar)
 );
 
-CREATE TABLE IF NOT EXISTS Suivis(
+CREATE TABLE Suivis(
                        login VARCHAR(50),
                        login_1 VARCHAR(50),
                        dateSuivi DATE,
@@ -61,7 +62,7 @@ CREATE TABLE IF NOT EXISTS Suivis(
                        FOREIGN KEY(login_1) REFERENCES Users(login)
 );
 
-CREATE TABLE IF NOT EXISTS Builds(
+CREATE TABLE Builds(
                        idBuild INT AUTO_INCREMENT,
                        nomBuild VARCHAR(50),
                        description VARCHAR(50),
@@ -76,31 +77,31 @@ CREATE TABLE IF NOT EXISTS Builds(
                        FOREIGN KEY(login) REFERENCES Users(login)
 );
 
-CREATE TABLE IF NOT EXISTS Incantations(
+CREATE TABLE Incantations(
                              idMagicSpell VARCHAR(50),
                              PRIMARY KEY(idMagicSpell),
                              FOREIGN KEY(idMagicSpell) REFERENCES MagicSpells(idMagicSpell)
 );
 
-CREATE TABLE IF NOT EXISTS Items(
+CREATE TABLE Items(
                       idTool VARCHAR(50),
                       PRIMARY KEY(idTool),
                       FOREIGN KEY(idTool) REFERENCES Tools(idTool)
 );
 
-CREATE TABLE IF NOT EXISTS Sorceries(
+CREATE TABLE Sorceries(
                           idMagicSpell VARCHAR(50),
                           PRIMARY KEY(idMagicSpell),
                           FOREIGN KEY(idMagicSpell) REFERENCES MagicSpells(idMagicSpell)
 );
 
-CREATE TABLE IF NOT EXISTS Spirits(
+CREATE TABLE Spirits(
                         idTool VARCHAR(50),
                         PRIMARY KEY(idTool),
                         FOREIGN KEY(idTool) REFERENCES Tools(idTool)
 );
 
-CREATE TABLE IF NOT EXISTS ArmorBuild(
+CREATE TABLE ArmorBuild(
                            idBuild INT,
                            idArmor VARCHAR(50),
                            categorie VARCHAR(50),
@@ -109,7 +110,7 @@ CREATE TABLE IF NOT EXISTS ArmorBuild(
                            FOREIGN KEY(idArmor) REFERENCES Armor(idArmor)
 );
 
-CREATE TABLE IF NOT EXISTS WeaponBuild(
+CREATE TABLE WeaponBuild(
                             idWeapon VARCHAR(50),
                             idBuild INT,
                             categorie VARCHAR(50),
@@ -118,7 +119,7 @@ CREATE TABLE IF NOT EXISTS WeaponBuild(
                             FOREIGN KEY(idBuild) REFERENCES Builds(idBuild)
 );
 
-CREATE TABLE IF NOT EXISTS evaluerBuild(
+CREATE TABLE evaluerBuild(
                              login VARCHAR(50),
                              idBuild INT,
                              note VARCHAR(50),
@@ -127,7 +128,7 @@ CREATE TABLE IF NOT EXISTS evaluerBuild(
                              FOREIGN KEY(idBuild) REFERENCES Builds(idBuild)
 );
 
-CREATE TABLE IF NOT EXISTS contientTalisman(
+CREATE TABLE contientTalisman(
                                  idBuild INT,
                                  idTalisman VARCHAR(50),
                                  PRIMARY KEY(idBuild, idTalisman),
@@ -135,7 +136,7 @@ CREATE TABLE IF NOT EXISTS contientTalisman(
                                  FOREIGN KEY(idTalisman) REFERENCES Talismans(idTalisman)
 );
 
-CREATE TABLE IF NOT EXISTS contientMagicSpell(
+CREATE TABLE contientMagicSpell(
                                    idBuild INT,
                                    idMagicSpell VARCHAR(50),
                                    PRIMARY KEY(idBuild, idMagicSpell),
@@ -143,7 +144,7 @@ CREATE TABLE IF NOT EXISTS contientMagicSpell(
                                    FOREIGN KEY(idMagicSpell) REFERENCES MagicSpells(idMagicSpell)
 );
 
-CREATE TABLE IF NOT EXISTS contientTool(
+CREATE TABLE contientTool(
                              idBuild INT,
                              idTool VARCHAR(50),
                              PRIMARY KEY(idBuild, idTool),
@@ -151,7 +152,7 @@ CREATE TABLE IF NOT EXISTS contientTool(
                              FOREIGN KEY(idTool) REFERENCES Tools(idTool)
 );
 
-CREATE TABLE IF NOT EXISTS contientAmmo(
+CREATE TABLE contientAmmo(
                              idBuild INT,
                              idAmmo VARCHAR(50),
                              PRIMARY KEY(idBuild, idAmmo),
@@ -159,7 +160,7 @@ CREATE TABLE IF NOT EXISTS contientAmmo(
                              FOREIGN KEY(idAmmo) REFERENCES Ammos(idAmmo)
 );
 
-CREATE TABLE IF NOT EXISTS contientAshOfWar(
+CREATE TABLE contientAshOfWar(
                                  idBuild INT,
                                  idAshOfWar VARCHAR(50),
                                  PRIMARY KEY(idBuild, idAshOfWar),
