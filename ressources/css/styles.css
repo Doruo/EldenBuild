@@ -29,6 +29,12 @@ body {
     transition: background-image 3s;
 }
 
+/* NAVBAR */
+#navbar{
+    position: sticky;
+    top:0;
+}
+
 /* TITRE PRINCIPALE */
 
 #titre-princiale{
