@@ -4,38 +4,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php
+    use App\EldenBuild\Lib\ConnexionUtilisateur;
+    ?>
 
-    <title>Elden Build</title>
+    <title>
+        <?php
+        /** @var $pagetitle */
+        if (is_null($pagetitle)) echo "Elden Build";
+        else echo "Elden Build - ".$pagetitle; ?>
+    </title>
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link href="/ressources/css/styles.css" rel="stylesheet">
     <script defer="defer" src="/ressources/js/scripts.js"></script>
     <script defer="defer" src="/ressources/js/requetes.js"></script>
-
 </head>
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a id="titre-princiale-menu" class="navbar-brand" href="#">Elden Build</a>
 
-    <a id="titre-princiale-menu" class="navbar-brand" href="#">Elden Build</a>
+        <button class="navbar-toggler" type="button">
+            <span ></span>
+        </button>
 
-    <button class="navbar-toggler" type="button">
-        <span ></span>
-    </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a class="nav-link" href="home">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="afficherFormulaireCreation">Inscription</a></li>
-            <li class="nav-item"><a class="nav-link" href="">Connection</a></li>
-        </ul>
+                <!-- HOME -->
+                <li class="nav-item"><a class="nav-link" href="home">Home</a></li>
+
+                <!-- INSCRIPTION -->
+                <?php if (!ConnexionUtilisateur::estConnecte() || ConnexionUtilisateur::estAdministrateur())
+                    echo '<li class="nav-item"><a class="nav-link" href="/afficherFormulaireCreation">Inscription</a></li>';
+                ?>
+
+                <!-- Connexion -->
+                <?php if (!ConnexionUtilisateur::estConnecte())
+                    echo '<li class="nav-item"><a class="nav-link" href="/afficherFormulaireConnexion">Connection</a></li>';
+                ?>
+
+            </ul>
+        </div>
+
+    </nav>
+
+    <!-- MESSAGES FLASH -->
+
+    <div>
+        <?php
+        /** @var string[][] $messagesFlash */
+        foreach($messagesFlash as $type => $messagesFlashPourUnType)
+        {
+            // $type est l'une des valeurs suivantes : "success", "info", "warning", "danger"
+            // $messagesFlashPourUnType est la liste des messages flash d'un type
+
+            foreach ($messagesFlashPourUnType as $messageFlash) {
+                echo <<< HTML
+            <div class="alert alert-$type">
+             $messageFlash
+            </div>
+            HTML;
+            }
+        }
+        ?>
     </div>
 
-</nav>
+</header>
 
 <main>
+
     <div id="conteneurActions" class="container mt-5">
 
         <h1 id="titre-princiale" >Elden Build</h1>

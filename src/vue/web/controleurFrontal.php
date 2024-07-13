@@ -41,11 +41,11 @@ if (class_exists($nomDeClasseControleur)) {
     if (in_array($action,get_class_methods($nomDeClasseControleur)))
         $nomDeClasseControleur::$action();
     else {
-        MessageFlash::ajouter("danger","Erreur: Cette action n'existe pas pour : ".$nomDeClasseControleur);
+        MessageFlash::ajouter("danger","Cette action n'existe pas pour : ".$nomDeClasseControleur);
         ControleurGenerique::redirectionVersURL("controleurFrontal.php?action=home");
     }
 }
 else {
-    MessageFlash::ajouter("danger","Erreur: ".$nomDeClasseControleur." n'existe pas");
+    MessageFlash::ajouter("danger",$nomDeClasseControleur." n'existe pas");
     ControleurGenerique::redirectionVersURL("controleurFrontal.php?action=home");
 }

@@ -5,7 +5,11 @@ use App\EldenBuild\Lib\PreferenceControleur;
 
 abstract class ControleurGenerique {
 
-    public static function home() : void {self::afficherVueGenerale();}
+    /** ------------------- AFFICHAGE PRINCIPALE ------------------- */
+    public static function home() : void {
+        $parametres = array("pagetitle" => "Home");
+        self::afficherVueGenerale($parametres);
+    }
 
     /** ------------------- READ ------------------- */
     protected static abstract function afficherListe();
