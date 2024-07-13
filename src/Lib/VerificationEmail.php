@@ -23,14 +23,14 @@ class VerificationEmail
         $contenuHTML = "
         <html>
         <head>
-          <title>HAYE Marc EldenBuild - Validation adresse email</title>
+          <title>Elden Build - Validez votre Compte</title>
         </head>
         <body>
           <p>
-          Merci de vous être inscrit sur le meilleur site de eldenBuild ! 
+          Merci de vous être inscrit sur le meilleur Site de Build ! 
           Pour valider votre adresse email, veuillez cliquer sur le lien suivant :</p>
           <a href=\"$lienValidationEmail\">Cliquez ici pour valider votre email</a>
-          <p>Marc HAYE, Etudiant Informatique à l'IUT Montpellier-Sète.</p>
+          <p>Tout pour vous amuser, Elden Build, 2024.</p>
         </body>
         </html>
         ";
@@ -50,7 +50,12 @@ class VerificationEmail
     {
         /** @var Utilisateur $utilisateur */
         $utilisateur = (new UtilisateurRepository())->recupererParClePrimaire($login);
-        return ($utilisateur && !$utilisateur->formatTableau()['nonceTag'] == $nonce);
+        if ($utilisateur) return false;
+
+        $utilisateur->setEmail($utilisateur->getEmailAValider());
+        $utilisateur->setEmailAValider("");
+
+        return (!$utilisateur->formatTableau()['nonceTag'] == $nonce);
     }
 
     public static function aValideEmail(Utilisateur $utilisateur): bool{

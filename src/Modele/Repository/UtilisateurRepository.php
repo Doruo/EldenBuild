@@ -17,7 +17,7 @@ class UtilisateurRepository extends AbstractRepository
         );
     }
 
-    protected function getNomTable(): string {return "utilisateur"; }
+    protected function getNomTable(): string {return "users"; }
 
     protected function getNomClePrimaire(): string {return "login";}
 

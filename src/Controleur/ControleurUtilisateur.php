@@ -99,8 +99,6 @@ class ControleurUtilisateur extends ControleurGenerique
 
         $utilisateurTableau = array(
             'login' => $_REQUEST['login'],
-            'nom' => $_REQUEST['nom'],
-            'prenom' => $_REQUEST['prenom'],
             'mdpHache' => MotDePasse::hacher($_REQUEST['mdp']),
             'email' => "",
             'emailAValider' => $_REQUEST['email'],
