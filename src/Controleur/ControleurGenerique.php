@@ -7,8 +7,7 @@ abstract class ControleurGenerique {
 
     /** ------------------- AFFICHAGE PRINCIPALE ------------------- */
     public static function home() : void {
-        $parametres = array("pagetitle" => "Home");
-        self::afficherVueGenerale($parametres);
+        self::afficherVueGenerale(array("cheminVueBody" => "/../home/home.php"));
     }
 
     /** ------------------- READ ------------------- */

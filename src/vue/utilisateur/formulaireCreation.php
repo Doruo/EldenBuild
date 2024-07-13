@@ -2,11 +2,12 @@
 use App\EldenBuild\Lib\ConnexionUtilisateur;
 ?>
 
+<div class="formulaire form-group">
 <form method="<?php echo App\EldenBuild\Configuration\ConfigurationSite::getMethodeForm();?>">
 
     <fieldset>
 
-        <legend><h1>Inscription :</h1></legend>
+        <legend><h1>Signing Up</h1></legend>
 
         <!-- ENTÊTE -->
 
@@ -23,14 +24,14 @@ use App\EldenBuild\Lib\ConnexionUtilisateur;
         <!-- NOM -->
 
         <p class="InputAddOn">
-            <label class="InputAddOn-item" for="nom_id">Nom&#42;</label>
+            <label class="InputAddOn-item" for="nom_id">Surname (optional)</label>
             <input class="InputAddOn-field" type="text" placeholder="Haye" name="nom" id="nom_id" required>
         </p>
 
         <!-- PRENOM -->
 
         <p class="InputAddOn">
-            <label class="InputAddOn-item" for="prenom_id">Prenom&#42;</label>
+            <label class="InputAddOn-item" for="prenom_id">First Name (optional)</label>
             <input class="InputAddOn-field" type="text" placeholder="Marc" name="prenom" id="prenom_id" required>
         </p>
 
@@ -38,17 +39,17 @@ use App\EldenBuild\Lib\ConnexionUtilisateur;
 
         <p class="InputAddOn">
             <label class="InputAddOn-item" for="email_id">Email&#42;</label>
-            <input class="InputAddOn-field" type="email" value="" placeholder="toto@yopmail.com (pas encore de serveur mail pour la verification)" name="email" id="email_id" required>
+            <input class="InputAddOn-field" type="email" value="" placeholder="toto@yopmail.com" name="email" id="email_id" required>
         </p>
 
         <!-- MOT DE PASSE -->
 
         <p class="InputAddOn">
-            <label class="InputAddOn-item" for="mdp_id">Mot de passe&#42;</label>
-            <input class="InputAddOn-field" type="password" value="" placeholder="(mdp aléatoire, connexion HTTP non sécurisée !)" name="mdp" id="mdp_id" required>
+            <label class="InputAddOn-item" for="mdp_id">Password&#42;</label>
+            <input class="InputAddOn-field" type="password" value="" placeholder="RANDOM PLS !" name="mdp" id="mdp_id" required>
         </p>
         <p class="InputAddOn">
-            <label class="InputAddOn-item" for="mdp2_id">Vérification du mot de passe&#42;</label>
+            <label class="InputAddOn-item" for="mdp2_id">Password Validation&#42;</label>
             <input class="InputAddOn-field" type="password" value="" placeholder="" name="mdp2" id="mdp2_id" required>
         </p>
 
@@ -58,7 +59,7 @@ use App\EldenBuild\Lib\ConnexionUtilisateur;
         if (ConnexionUtilisateur::estConnecte() && ConnexionUtilisateur::estAdministrateur())
             echo '        
                 <p class="InputAddOn">
-                    <label class="InputAddOn-item" for="estAdmin_id">Administrateur</label>
+                    <label class="InputAddOn-item" for="estAdmin_id">Admin</label>
                     <input class="InputAddOn-field" type="checkbox" placeholder="" name="estAdmin" id="estAdmin_id">
                 </p>';
         ?>
@@ -66,9 +67,9 @@ use App\EldenBuild\Lib\ConnexionUtilisateur;
         <!-- ENOVOYER -->
 
         <p>
-            <input class="InputAddOn-field" type="submit" value="Envoyer" />
+            <input class="InputAddOn-field" type="submit" value="Create" />
         </p>
     </fieldset>
 
 </form>
-
+</div>

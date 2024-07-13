@@ -5,7 +5,7 @@ abstract class ConfigurationSite
     private static array $configurationSite = array(
         'dureeExpiration' => 3600,
         'URLAbsolue' => "http://eldenring.eldenbuild.com/src/vue/web/controleurFrontal.php",
-        'debug' => true
+        'debug' => false
     );
 
     public static function getDureeExpiration(): int {
