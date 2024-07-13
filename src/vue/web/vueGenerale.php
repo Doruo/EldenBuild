@@ -50,7 +50,10 @@
                     echo '<li class="nav-item"><h2 class="navbar-text">-</h2></li>';
                     echo
                     '<li class="nav-item">
-                        <a class="nav-link" href="/afficherFormulaireCreation">Sign Up</a>
+                        <a class="nav-link" href="/afficherFormulaireCreation">
+                            <img class="img-icon" src="/ressources/images/icons/hosts-mirror-trick.png" alt="hosts-mirror-trick"/>  
+                            Sign Up
+                        </a>
                     </li>';
                 }
                 ?>
@@ -58,7 +61,13 @@
                 <!-- CONNEXION -->
                 <?php if (!ConnexionUtilisateur::estConnecte()){
                     echo '<li class="nav-item"><h2 class="navbar-text">-</h2></li>';
-                    echo '<li class="nav-item"><a class="nav-link" href="/afficherFormulaireConnexion">Log In</a></li>';
+
+                    echo '<li class="nav-item">
+                            <a class="nav-link" href="/afficherFormulaireConnexion">
+                                <img class="img-icon" src="/ressources/images/icons/carian-inverted-statue.webp" alt="carian-inverted-statue"/>  
+                                Log In
+                            </a> 
+                          </li>';
                 }
                 ?>
 
@@ -69,8 +78,8 @@
                     echo '<li class="nav-item"><h2 class="navbar-text">-</h2></li>';
                     echo '            
                 <li class="nav-item">
-                    <a class="navbar-text" href="controleurFrontal.php?controleur=utilisateur&action=deconnecter" id="logout">
-                        <img class="img-icon" src="/ressources/images/buttons/logout.png" alt="logout" >
+                    <img class="img-icon" src="/ressources/images/icons/memory-of-grace.webp" alt="memory-of-grace"/>  
+                    <a class="navbar-text" href="controleurFrontal.php?controleur=utilisateur&action=deconnecter" id="logout">   
                         Log Out
                     </a>
                 </li>';
@@ -83,7 +92,7 @@
                 <!-- USERS -->
                 <li class="nav-item">
                     <a class="nav-link" href="/afficherListe">
-                        <img class="img-icon" src="/ressources/images/icons/furlcalling_finger_remedy.png" alt="furlcalling_finger_remedy"/>
+                        <img class="img-icon" src="/ressources/images/icons/furlcalling_finger_remedy.webp" alt="furlcalling_finger_remedy"/>
                         Users
                     </a>
                 </li>
@@ -93,7 +102,7 @@
                 <!-- TEST API -->
                 <li class="nav-item">
                     <a class="nav-link" href="/afficherListe">
-                        <img class="img-icon" src="/ressources/images/icons/furlcalling_finger_remedy.png" alt="furlcalling_finger_remedy"/>
+                        <img class="img-icon" src="/ressources/images/icons/telescope.webp" alt="telescope"/>
                         Test API
                     </a>
                 </li>
@@ -126,16 +135,15 @@
 </header>
 
 <main>
-
     <?php if (ConfigurationSite::getDebug()) echo "<div><h1>MODE DEBUG ACTIF</h1></div>";
 
     /** @var $cheminVueBody */ require __DIR__ . $cheminVueBody ?>
 </main>
 
-<!--
-<footer > class="bg-dark">
+
+<footer class="bg-dark">
     &copy;2024 - WORK IN PROGRESS - Marc Haye.
-</footer> -->
+</footer>
 
 </body>
 </html>

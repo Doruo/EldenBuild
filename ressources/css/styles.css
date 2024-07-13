@@ -53,6 +53,7 @@ body {
 #sous-titre{
     font-size: 2.5rem;
     text-shadow: 2px 2px white;
+    color: #000000;
 }
 
 /* ------------------------- BARRE DE RECHERCHE ------------------------- */
@@ -133,7 +134,7 @@ footer {
 
 .InputAddOn-field,
 .InputAddOn-item {
-    border: 1px solid rgba(147, 128, 108, 0.25);
+    border: 1px solid rgba(230, 228, 221, 0.25);
     padding: 0.5em 0.75em;
 }
 .InputAddOn-field:first-child,
