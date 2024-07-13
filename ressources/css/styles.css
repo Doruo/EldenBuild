@@ -19,7 +19,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: Arial, sans-serif;
+    font-family: 'dark-souls', serif;
 
     /* BACKGROUND */
     background-size: cover;
@@ -44,6 +44,11 @@ body {
     text-shadow: 5px 5px black;
 }
 
+#sous-titre{
+    font-size: 2.5rem;
+    text-shadow: 2px 2px white;
+}
+
 /* TEXTS */
 
 h1 {
@@ -55,13 +60,13 @@ h3{
     text-align: center;
 }
 
-h1, h2,#sous-titre{
-    font-family: 'dark-souls', serif;
+/* Conteneurs */
+
+.card-title{
+    font-size: 1.25rem;
 }
 
-
-.card-title {
-    font-size: 1.25rem;
+.card-title, #sous-titre {
     font-weight: bold;
 }
 

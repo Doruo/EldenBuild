@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -15,28 +15,38 @@
         else echo "Elden Build - ".$pagetitle; ?>
     </title>
 
+    <!-- Boostrap, favicon & stylesheet CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link href="/ressources/css/styles.css" rel="stylesheet">
-    <script defer="defer" src="/ressources/js/scripts.js"></script>
-    <script defer="defer" src="/ressources/js/requetes.js"></script>
+
+    <!-- scripts JS -->
+    <script defer="defer" src="/ressources/js/base.js"></script>
+    <script defer="defer" src="/ressources/js/requetesAPI.js"></script>
 </head>
 
 <body>
 
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a id="titre-princiale-menu" class="navbar-brand" href="#">Elden Build</a>
 
-        <button class="navbar-toggler" type="button">
-            <span ></span>
-        </button>
+        <!-- TITRE -->
+        <a id="titre-princiale-menu" class="navbar-brand" href="#">Elden Build</a>
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
 
+
+                <!-- RECHERCHE -->
+                <li>
+                    <div>
+                        <label for="search-input"></label>
+                        <input type="text" id="search-input" placeholder="Build ou Utilisateur"/></div>
+                </li>
+
                 <!-- HOME -->
                 <li class="nav-item"><a class="nav-link" href="home">Home</a></li>
+
 
                 <!-- INSCRIPTION -->
                 <?php if (!ConnexionUtilisateur::estConnecte() || ConnexionUtilisateur::estAdministrateur())
@@ -121,7 +131,8 @@
 </main>
 
 <footer class="bg-dark">
-    &copy;2024 Tous droits reserves.
+    &copy;2024 ~WORK IN PROGRESS~ Marc Haye.
+    <a>Contact</a>
 </footer>
 
 </body>
