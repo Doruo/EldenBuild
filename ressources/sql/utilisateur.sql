@@ -4,6 +4,6 @@ CREATE TABLE Users(
                       email VARCHAR(50) NOT NULL,
                       emailAVerifier VARCHAR(50) NOT NULL,
                       nonce VARCHAR(50) NOT NULL,
-                      estAdmin BOOLEAN,
+                      estAdmin BOOLEAN NOT NULL,
                       PRIMARY KEY(login)
 );
