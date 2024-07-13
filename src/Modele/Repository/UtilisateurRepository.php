@@ -8,8 +8,6 @@ class UtilisateurRepository extends AbstractRepository
     protected function construireDepuisTableau(array $objetFormatTableau) : Utilisateur {
         return new Utilisateur(
             $objetFormatTableau["login"],
-            $objetFormatTableau["nom"],
-            $objetFormatTableau["prenom"],
             $objetFormatTableau["mdpHache"],
             $objetFormatTableau["estAdmin"],
             $objetFormatTableau["email"],
@@ -24,6 +22,6 @@ class UtilisateurRepository extends AbstractRepository
     protected function getNomClePrimaire(): string {return "login";}
 
     protected function getNomsColonnes(): array {
-        return ["login", "nom", "prenom", "mdpHache","estAdmin","email","emailAValider","nonce"];
+        return ["login", "mdpHache","estAdmin","email","emailAValider","nonce"];
     }
 }

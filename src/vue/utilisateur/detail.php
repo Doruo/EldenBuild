@@ -9,14 +9,12 @@ $login = $utilisateur->getLogin();
 $loginHTML = htmlspecialchars($login);
 $loginURL = rawurlencode($login);
 
-$prenomHTML = htmlspecialchars($utilisateur->getPrenom());
-$nomHTML = htmlspecialchars($utilisateur->getNom());
 $mailHTML = htmlspecialchars($utilisateur->getEmail());
 
+/** EMAIL */
+
 echo "<h1>~ Utilisateur ~</h1>" .
-    "<h2>Login : " . $loginHTML ."</h2>"
-    . "<h2>Nom : " . $nomHTML ."</h2>"
-    . "<h2>Prenom : " . $prenomHTML ."</h2>";
+    "<h2>Login : " . $loginHTML ."</h2>";
 
 /** EMAIL */
 
