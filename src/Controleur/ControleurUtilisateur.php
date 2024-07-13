@@ -59,6 +59,7 @@ class ControleurUtilisateur extends ControleurGenerique
             return;
         }
 
+        $parametres['utilisateur'] = $utilisateur;
         self::afficherVue('web/vueGenerale.php', $parametres);
     }
 
@@ -88,8 +89,9 @@ class ControleurUtilisateur extends ControleurGenerique
             return;
         }
 
-        /*
+
         // Verif Adr mail valide
+        /*
         if (!filter_var($_REQUEST['email'], FILTER_VALIDATE_EMAIL)) {
             MessageFlash::ajouter("warning","Veuillez saisir une adresse email valide");
             self::redirectionVersURL('controleurFrontal.php?action=creerDepuisFormulaire&controleur=utilisateur');
@@ -103,21 +105,20 @@ class ControleurUtilisateur extends ControleurGenerique
             'login' => $_REQUEST['login'],
             'mdpHache' => MotDePasse::hacher($_REQUEST['mdp']),
             'email' => "",
-            'emailAValider' => $_REQUEST['email'] ?? " ",
-            'nonce' => MotDePasse::genererChaineAleatoire(),
-            'estAdmin' => false
+            'emailAValider' => $_REQUEST['email'],
+            'nonce' => MotDePasse::genererChaineAleatoire()
         );
 
-        //$utilisateurTableau['estAdmin'] = $estUtilisateurAdmin && (!is_null($_REQUEST['estAdmin'] || $_REQUEST['estAdmin'] = "on"));
+        $utilisateurTableau['estAdmin'] = $estUtilisateurAdmin && (!is_null($_REQUEST['estAdmin'] || $_REQUEST['estAdmin'] = "on"));
 
         $utilisateur = Utilisateur::construireDepuisFormulaire($utilisateurTableau);
 
         (new UtilisateurRepository)->ajouter($utilisateur); // Ajoute utilisateur dans BD
 
-        //VerificationEmail::envoiEmailValidation($utilisateur);
+        /*VerificationEmail::envoiEmailValidation($utilisateur);*/
 
         // Connecte le nouvelle utilisateur
-        //if (!$estUtilisateurAdmin) ConnexionUtilisateur::connecter($utilisateur->getLogin());
+        if (!$estUtilisateurAdmin) ConnexionUtilisateur::connecter($utilisateur->getLogin());
 
         MessageFlash::ajouter("success","Utilisateur ".$utilisateur->getLogin()." crée !");
         self::afficherListe();

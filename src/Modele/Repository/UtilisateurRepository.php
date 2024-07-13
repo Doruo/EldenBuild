@@ -9,14 +9,12 @@ class UtilisateurRepository extends AbstractRepository
         return new Utilisateur(
             $objetFormatTableau["login"],
             $objetFormatTableau["mdpHache"],
-            $objetFormatTableau["estAdmin"],
             $objetFormatTableau["email"] ?? "",
             $objetFormatTableau["emailAValider"] ?? "",
-            $objetFormatTableau["nonce"] ?? ""
-
+            $objetFormatTableau["nonce"] ?? "",
+            $objetFormatTableau["estAdmin"]
         );
     }
-
     protected function getNomTable(): string {return "users"; }
 
     protected function getNomClePrimaire(): string {return "login";}
