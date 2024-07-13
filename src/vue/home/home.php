@@ -3,7 +3,7 @@
 echo '
     <div id="conteneurActions" class="container mt-5">
 
-        <h1 id="titre-princiale" >Elden Build</h1>
+        <h1 id="titre-princiale" >-Elden Build-</h1>
         <h3 id="sous-titre">Create & Share Builds for Elden rinG.</h3>
 
         <div class="row">
@@ -13,7 +13,7 @@ echo '
 
                         <h2 class="card-title">Create a New Build</h2>
                         <p class="card-text">Start Your Very Own Build.</p>
-                        <a href="#" class="btn btn-primary">Creer</a>
+                        <a href="#" class="btn btn-primary">Create</a>
 
                     </div>
                 </div>
@@ -24,7 +24,7 @@ echo '
                     <div class="card-body">
                         <h2 class="card-title">Consulter les Builds</h2>
                         <p class="card-text">Explore Builds Shared by Other Users.</p>
-                        <a href="#" class="btn btn-primary">Consulte</a>
+                        <a href="#" class="btn btn-primary">Consult</a>
                     </div>
                 </div>
             </div>
