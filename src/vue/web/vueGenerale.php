@@ -47,13 +47,23 @@
 
                 <!-- INSCRIPTION -->
                 <?php if (!ConnexionUtilisateur::estConnecte() || ConnexionUtilisateur::estAdministrateur())
-                    echo '<li class="nav-item"><a class="nav-link" href="/afficherFormulaireCreation">Sign Up</a></li>';
+                    echo
+                    '<li class="nav-item">
+                        <a class="nav-link" href="/afficherFormulaireCreation">Sign Up</a>
+                    </li>';
                 ?>
 
                 <!-- CONNEXION -->
                 <?php if (!ConnexionUtilisateur::estConnecte())
                     echo '<li class="nav-item"><a class="nav-link" href="/afficherFormulaireConnexion">Log In</a></li>';
                 ?>
+
+                <!-- Users -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/afficherListe">
+                        Users
+                    </a>
+                </li>
 
             </ul>
         </div>
@@ -89,10 +99,10 @@
     /** @var $cheminVueBody */ require __DIR__ . $cheminVueBody ?>
 </main>
 
-<footer class="bg-dark">
-    &copy;2024 ~WORK IN PROGRESS~ Marc Haye.
-    <a>Contact</a>
-</footer>
+<!--
+<footer > class="bg-dark">
+    &copy;2024 - WORK IN PROGRESS - Marc Haye.
+</footer> -->
 
 </body>
 </html>

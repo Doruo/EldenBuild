@@ -11,24 +11,24 @@ class Utilisateur extends AbstractDataObject {
 
     private string $nonce;
 
-    public function __construct(string $login, string $mdpHache, mixed $estAdmin, string $email,string $emailAValider,string $nonce)
+    public function __construct(string $login, string $mdpHache, string $email,string $emailAValider,string $nonce, mixed $estAdmin)
     {
         $this->login = $login;
         $this->mdpHache = $mdpHache;
-        $this->estAdmin = $estAdmin;
         $this->email = $email;
         $this->emailAValider = $emailAValider;
         $this->nonce = $nonce;
+        $this->estAdmin = $estAdmin;
     }
 
     public function formatTableau(): array{
         return array(
             "loginTag" => $this->getLogin(),
             "mdpHacheTag" => $this->getMdpHache(),
-            "estAdminTag" => $this->estAdmin(),
             "emailTag" => $this->getEmail(),
             "emailAValiderTag" => $this->getEmailAValider(),
-            "nonceTag" => $this->getNonce()
+            "nonceTag" => $this->getNonce(),
+            "estAdminTag" => $this->estAdmin()
         );
     }
 
@@ -36,10 +36,10 @@ class Utilisateur extends AbstractDataObject {
         return new self(
             $tableauFormulaire['login'],
             $tableauFormulaire['mdpHache'],
-            $tableauFormulaire['estAdmin'],
             $tableauFormulaire['email'],
             $tableauFormulaire['emailAValider'],
-            $tableauFormulaire['nonce']
+            $tableauFormulaire['nonce'],
+            $tableauFormulaire['estAdmin'],
         );
     }
 
@@ -57,4 +57,5 @@ class Utilisateur extends AbstractDataObject {
     public function setEmail(string $email): void{$this->email = $email;}
     public function setEmailAValider(string $emailAValider): void{$this->emailAValider = $emailAValider;}
     public function setNonce(string $nonce): void{$this->nonce = $nonce;}
+    public function setAdmin(false $estAdmin): void{$this->estAdmin = $estAdmin;}
 }

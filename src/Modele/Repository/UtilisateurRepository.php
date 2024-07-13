@@ -10,9 +10,9 @@ class UtilisateurRepository extends AbstractRepository
             $objetFormatTableau["login"],
             $objetFormatTableau["mdpHache"],
             $objetFormatTableau["estAdmin"],
-            $objetFormatTableau["email"],
-            $objetFormatTableau["emailAValider"],
-            $objetFormatTableau["nonce"]
+            $objetFormatTableau["email"] ?? "",
+            $objetFormatTableau["emailAValider"] ?? "",
+            $objetFormatTableau["nonce"] ?? ""
 
         );
     }

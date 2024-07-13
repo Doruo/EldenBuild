@@ -12,35 +12,42 @@ use Random\RandomException;
 class ControleurUtilisateur extends ControleurGenerique
 {
 
-
     /** ------------------- READ ------------------- */
 
     public static function afficherListe(): void
     {
-        //$utilisateurs = (new UtilisateurRepository())->recuperer();  //appel au modèle pour gérer la BD
-        /*
+        // Appel au modèle pour gérer la BD
+        $utilisateurs = (new UtilisateurRepository())->recuperer();
+
         if (!$utilisateurs) {
-            MessageFlash::ajouter("warning","Aucun Utilisateur");
-            self::redirectionVersURL('controleurFrontal.php?action=afficherListe&controleur=utilisateur');
+            MessageFlash::ajouter("warning","No User Found");
+            self::home();
             return;
-        }*/
+        }
 
         $parametres = array(
-            //"utilisateurs" => $utilisateurs,
-            "pagetitle" => "Liste des Utilisateurs",
+            "utilisateurs" => $utilisateurs,
+            "pagetitle" => "Users",
             "cheminVueBody" => "/../utilisateur/liste.php"
         );
 
-        self::afficherVue('/web/vueGenerale.php', $parametres);
+        self::afficherVueGenerale($parametres);
     }
 
     public static function afficherDetail(): void
     {
         $login = $_REQUEST["login"];
 
+        $pagetitle = ConnexionUtilisateur::estUtilisateur($login) ? "Your Profile" : "Profile";
+
+        $parametres = array(
+            "pagetitle" => $pagetitle,
+            "cheminVueBody" => "/../utilisateur/detail.php"
+        );
+
         if (is_null($login)){
-            MessageFlash::ajouter("warning","Aucun Login");
-            self::redirectionVersURL('controleurFrontal.php?action=afficherListe&controleur=utilisateur');
+            MessageFlash::ajouter("warning","No User Found");
+            self::home();
             return;
         }
 
@@ -48,15 +55,9 @@ class ControleurUtilisateur extends ControleurGenerique
 
         if (!$utilisateur) {
             MessageFlash::ajouter("warning","Login inconnu");
-            self::redirectionVersURL('controleurFrontal.php?action=afficherListe&controleur=utilisateur');
+            self::afficherListe();
             return;
         }
-
-        $parametres = array(
-            "utilisateur" => $utilisateur,
-            "pagetitle" => "Profil",
-            "cheminVueBody" => "/../utilisateur/detail.php"
-        );
 
         self::afficherVue('web/vueGenerale.php', $parametres);
     }
@@ -67,7 +68,7 @@ class ControleurUtilisateur extends ControleurGenerique
             "pagetitle" => "Inscription",
             "cheminVueBody" =>  "/../utilisateur/formulaireCreation.php"
         );
-        self::afficherVue("web/vueGenerale.php", $parametres);
+        self::afficherVueGenerale($parametres);
     }
 
     /**@throws RandomException */
@@ -87,12 +88,13 @@ class ControleurUtilisateur extends ControleurGenerique
             return;
         }
 
+        /*
         // Verif Adr mail valide
         if (!filter_var($_REQUEST['email'], FILTER_VALIDATE_EMAIL)) {
             MessageFlash::ajouter("warning","Veuillez saisir une adresse email valide");
             self::redirectionVersURL('controleurFrontal.php?action=creerDepuisFormulaire&controleur=utilisateur');
             return;
-        }
+        }*/
 
         // Création Utilisateur
         $estUtilisateurAdmin = ConnexionUtilisateur::estAdministrateur();
@@ -101,22 +103,24 @@ class ControleurUtilisateur extends ControleurGenerique
             'login' => $_REQUEST['login'],
             'mdpHache' => MotDePasse::hacher($_REQUEST['mdp']),
             'email' => "",
-            'emailAValider' => $_REQUEST['email'],
-            'nonce' => MotDePasse::genererChaineAleatoire()
+            'emailAValider' => $_REQUEST['email'] ?? " ",
+            'nonce' => MotDePasse::genererChaineAleatoire(),
+            'estAdmin' => false
         );
 
-        $utilisateurTableau['estAdmin'] = $estUtilisateurAdmin && (!is_null($_REQUEST['estAdmin'] || $_REQUEST['estAdmin'] = "on"));
+        //$utilisateurTableau['estAdmin'] = $estUtilisateurAdmin && (!is_null($_REQUEST['estAdmin'] || $_REQUEST['estAdmin'] = "on"));
 
         $utilisateur = Utilisateur::construireDepuisFormulaire($utilisateurTableau);
+
         (new UtilisateurRepository)->ajouter($utilisateur); // Ajoute utilisateur dans BD
 
-        VerificationEmail::envoiEmailValidation($utilisateur);
+        //VerificationEmail::envoiEmailValidation($utilisateur);
 
         // Connecte le nouvelle utilisateur
-        if (!$estUtilisateurAdmin) ConnexionUtilisateur::connecter($utilisateur->getLogin());
+        //if (!$estUtilisateurAdmin) ConnexionUtilisateur::connecter($utilisateur->getLogin());
 
         MessageFlash::ajouter("success","Utilisateur ".$utilisateur->getLogin()." crée !");
-        self::redirectionVersURL('controleurFrontal.php?action=afficherListe&controleur=utilisateur');
+        self::afficherListe();
     }
 
     /** ------------------- UPDATE ------------------- */
@@ -207,8 +211,6 @@ class ControleurUtilisateur extends ControleurGenerique
             return;
         }
 
-        $utilisateur->setNom($nom);
-        $utilisateur->setPrenom($prenom);
         $utilisateur->setMdpHache(MotdePasse::hacher($mdp));
         $utilisateur->setEmailAValider($mail);
 
@@ -270,7 +272,7 @@ class ControleurUtilisateur extends ControleurGenerique
     public static function afficherFormulaireConnexion(): void
     {
         $parametres = array(
-            "pagetitle" => "Site EldenBuild - Inscription",
+            "pagetitle" => "Connexion",
             "cheminVueBody" =>  "/../utilisateur/formulaireConnexion.php"
         );
 
