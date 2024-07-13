@@ -17,9 +17,7 @@ changeBackGround();
 
 function changeBackGround(){
     document.body.style.backgroundImage = `url('${images[indexImages]}')`;
-    console.log(document.body.style.backgroundImage);
     indexImages = (indexImages + 1) % images.length;
-    console.log("INDEX="+indexImages);
 }
 
 function lancerDefilement(){
