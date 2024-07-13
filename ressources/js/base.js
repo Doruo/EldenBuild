@@ -1,12 +1,13 @@
+/** SCRIPT BASE JS ELDEN BUILD */
 
-/** SCRIPT JS ELDEN BUILD */
+/**--------------------- BACKGROUND & DEFILEMENT ---------------------*/
 
-const URL_BACKGROUNDS_ROOT = "/ressources/images/backgrounds";
+const IMAGES_BACKGROUNDS_URL = "/ressources/images/backgrounds";
 
 const images = [
-    `${URL_BACKGROUNDS_ROOT}/liurnia.png`,
-    `${URL_BACKGROUNDS_ROOT}/dephts.png`,
-    `${URL_BACKGROUNDS_ROOT}/wyvern.png`
+    `${IMAGES_BACKGROUNDS_URL}/liurnia.png`,
+    `${IMAGES_BACKGROUNDS_URL}/dephts.png`,
+    `${IMAGES_BACKGROUNDS_URL}/wyvern.png`
 ];
 
 let indexImages = 0;
@@ -27,3 +28,5 @@ function lancerDefilement(){
 function stopperDefilement(){
     clearInterval(chb);
 }
+
+/**--------------------- BACKGROUND & DEFILEMENT ---------------------*/
