@@ -1,4 +1,4 @@
-<form method="<?php echo App\Covoiturage\Configuration\ConfigurationSite::getMethodeForm();?>">
+<form method="<?php echo App\EldenBuild\Configuration\ConfigurationSite::getMethodeForm();?>">
 
     <fieldset>
 

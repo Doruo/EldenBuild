@@ -1,8 +1,8 @@
 <?php
-use App\Covoiturage\Lib\ConnexionUtilisateur;
+use App\EldenBuild\Lib\ConnexionUtilisateur;
 ?>
 
-<form method="<?php echo App\Covoiturage\Configuration\ConfigurationSite::getMethodeForm();?>">
+<form method="<?php echo App\EldenBuild\Configuration\ConfigurationSite::getMethodeForm();?>">
 
     <fieldset>
 

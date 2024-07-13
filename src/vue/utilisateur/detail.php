@@ -1,7 +1,7 @@
 <?php
 
-use App\Covoiturage\Lib\ConnexionUtilisateur;
-use App\Covoiturage\Modele\DataObject\Utilisateur;
+use App\EldenBuild\Lib\ConnexionUtilisateur;
+use App\EldenBuild\Modele\DataObject\Utilisateur;
 
 /** @var Utilisateur $utilisateur */
 

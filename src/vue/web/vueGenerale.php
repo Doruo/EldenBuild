@@ -36,31 +36,31 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
 
-
                 <!-- RECHERCHE -->
                 <li>
                     <div>
                         <label for="search-input"></label>
-                        <input type="text" id="search-input" placeholder="Build ou Utilisateur"/></div>
+                        <input type="text" id="search-input" placeholder="Build ou Utilisateur"/>
+                    </div>
                 </li>
 
                 <!-- HOME -->
-                <li class="nav-item"><a class="nav-link" href="home">Home</a></li>
-
+                <li class="nav-item">
+                    <a class="nav-link" href="home">Home</a>
+                </li>
 
                 <!-- INSCRIPTION -->
                 <?php if (!ConnexionUtilisateur::estConnecte() || ConnexionUtilisateur::estAdministrateur())
                     echo '<li class="nav-item"><a class="nav-link" href="/afficherFormulaireCreation">Inscription</a></li>';
                 ?>
 
-                <!-- Connexion -->
+                <!-- CONNEXION -->
                 <?php if (!ConnexionUtilisateur::estConnecte())
                     echo '<li class="nav-item"><a class="nav-link" href="/afficherFormulaireConnexion">Connection</a></li>';
                 ?>
 
             </ul>
         </div>
-
     </nav>
 
     <!-- MESSAGES FLASH -->
