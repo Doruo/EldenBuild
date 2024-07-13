@@ -29,7 +29,7 @@
 <body>
 
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
 
         <!-- TITRE -->
         <a id="titre-princiale-menu" class="navbar-brand" href="home">Elden Build</a>
@@ -38,30 +38,63 @@
             <ul class="navbar-nav ml-auto">
 
                 <!-- RECHERCHE -->
-                <li class="nav-item">
+                <li class="nav-item navbar-text">
                     <div>
                         <label for="search-input"></label>
-                        <input type="text" id="search-input" placeholder="Build or User"/>
+                        <input type="text" id="search-input" placeholder="🔍 Build or User"/>
                     </div>
                 </li>
 
                 <!-- INSCRIPTION -->
-                <?php if (!ConnexionUtilisateur::estConnecte() || ConnexionUtilisateur::estAdministrateur())
+                <?php if (!ConnexionUtilisateur::estConnecte() || ConnexionUtilisateur::estAdministrateur()){
+                    echo '<li class="nav-item"><h2 class="navbar-text">-</h2></li>';
                     echo
                     '<li class="nav-item">
                         <a class="nav-link" href="/afficherFormulaireCreation">Sign Up</a>
                     </li>';
+                }
                 ?>
 
                 <!-- CONNEXION -->
-                <?php if (!ConnexionUtilisateur::estConnecte())
+                <?php if (!ConnexionUtilisateur::estConnecte()){
+                    echo '<li class="nav-item"><h2 class="navbar-text">-</h2></li>';
                     echo '<li class="nav-item"><a class="nav-link" href="/afficherFormulaireConnexion">Log In</a></li>';
+                }
                 ?>
 
-                <!-- Users -->
+                <!-- DECONNEXION -->
+
+                <?php
+                if (ConnexionUtilisateur::estConnecte()){
+                    echo '<li class="nav-item"><h2 class="navbar-text">-</h2></li>';
+                    echo '            
+                <li class="nav-item">
+                    <a class="navbar-text" href="controleurFrontal.php?controleur=utilisateur&action=deconnecter" id="logout">
+                        <img class="img-icon" src="/ressources/images/buttons/logout.png" alt="logout" >
+                        Log Out
+                    </a>
+                </li>';
+                }
+
+                ?>
+
+                <li class="nav-item"><h2 class="navbar-text">-</h2></li>
+
+                <!-- USERS -->
                 <li class="nav-item">
                     <a class="nav-link" href="/afficherListe">
+                        <img class="img-icon" src="/ressources/images/icons/furlcalling_finger_remedy.png" alt="furlcalling_finger_remedy"/>
                         Users
+                    </a>
+                </li>
+
+                <li class="nav-item"><h2 class="navbar-text">-</h2></li>
+
+                <!-- TEST API -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/afficherListe">
+                        <img class="img-icon" src="/ressources/images/icons/furlcalling_finger_remedy.png" alt="furlcalling_finger_remedy"/>
+                        Test API
                     </a>
                 </li>
 

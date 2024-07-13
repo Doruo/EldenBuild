@@ -1,6 +1,6 @@
-/* styles-td.css */
+/* ------------------------- styles.css ------------------------- */
 
-/* FONTS */
+/* ------------------------- FONTS ------------------------- */
 
 @font-face {
     font-family: 'elden-ring';
@@ -12,8 +12,7 @@
     src: url('/ressources/fonts/OptimusPrincepsSemiBold.ttf');
 }
 
-
-/* BODY */
+/* ------------------------- BODY ------------------------- */
 
 body {
     display: flex;
@@ -29,13 +28,13 @@ body {
     transition: background-image 3s;
 }
 
-/* NAVBAR */
+/* ------------------------- NAVBAR ------------------------- */
 #navbar{
     position: sticky;
     top:0;
 }
 
-/* TITRE PRINCIPALE */
+/* ------------------------- TITRE PRINCIPALE ------------------------- */
 
 #titre-princiale{
     font-size: 120px;
@@ -56,13 +55,13 @@ body {
     text-shadow: 2px 2px white;
 }
 
-/* BARRE DE RECHERCHE */
+/* ------------------------- BARRE DE RECHERCHE ------------------------- */
 #search-input{
     width: 90%;
 }
 
 
-/* TEXTS */
+/* ------------------------- TEXTES ------------------------- */
 
 h1,h3 {
     text-align: center;
@@ -82,7 +81,7 @@ h1,h3 {
     font-size: 1rem;
 }
 
-/* FOOTER */
+/* ------------------------- FOOTER ------------------------- */
 
 footer {
     background-color: #343a40; /* Same as bg-dark in Bootstrap */
@@ -93,9 +92,20 @@ footer {
     bottom: 0;
 }
 
-/* FORMULAIRES */
+/* ------------------------- IMAGES ------------------------- */
+
+.img-icon{
+    width: 30px;
+}
+
+/* ------------------------- FORMULAIRES ------------------------- */
+
 .form-group{
     margin: 10%;
+}
+
+.nav-item{
+    align-content: center;
 }
 
 /* https://philipwalton.github.io/solved-by-flexbox/demos/input-add-ons/ */
@@ -135,7 +145,8 @@ footer {
     border-radius: 0 2px 2px 0;
 }
 
-/* BOOSTRAP ALERTS */
+/* ------------------------- BOOSTRAP ALERTS ------------------------- */
+
 /* https://getbootstrap.com/docs/3.4/components/#alerts */
 
 .alert {
@@ -168,3 +179,5 @@ footer {
     background-color: #f2dede;
     border-color: #ebccd1;
 }
+
+/* ------------------------- / ------------------------- */
