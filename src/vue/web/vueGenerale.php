@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -40,7 +40,7 @@
                 <li>
                     <div>
                         <label for="search-input"></label>
-                        <input type="text" id="search-input" placeholder="Build ou Utilisateur"/>
+                        <input type="text" id="search-input" placeholder="Build or User"/>
                     </div>
                 </li>
 
@@ -51,12 +51,12 @@
 
                 <!-- INSCRIPTION -->
                 <?php if (!ConnexionUtilisateur::estConnecte() || ConnexionUtilisateur::estAdministrateur())
-                    echo '<li class="nav-item"><a class="nav-link" href="/afficherFormulaireCreation">Inscription</a></li>';
+                    echo '<li class="nav-item"><a class="nav-link" href="/afficherFormulaireCreation">Sign Up</a></li>';
                 ?>
 
                 <!-- CONNEXION -->
                 <?php if (!ConnexionUtilisateur::estConnecte())
-                    echo '<li class="nav-item"><a class="nav-link" href="/afficherFormulaireConnexion">Connection</a></li>';
+                    echo '<li class="nav-item"><a class="nav-link" href="/afficherFormulaireConnexion">Login</a></li>';
                 ?>
 
             </ul>
@@ -88,18 +88,19 @@
 
 <main>
 
+
     <div id="conteneurActions" class="container mt-5">
 
         <h1 id="titre-princiale" >Elden Build</h1>
-        <h3 id="sous-titre">Creer et partager vos builds pour Elden rinG.</h3>
+        <h3 id="sous-titre">Create & Share Builds for Elden rinG.</h3>
 
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
 
-                        <h2 class="card-title">Creer un Build</h2>
-                        <p class="card-text">Commencez à creer votre build personnalise.</p>
+                        <h2 class="card-title">Create a New Build</h2>
+                        <p class="card-text">Start Your Very Own Build.</p>
                         <a href="#" class="btn btn-primary">Creer</a>
 
                     </div>
@@ -110,8 +111,8 @@
                 <div class="card">
                     <div class="card-body">
                         <h2 class="card-title">Consulter les Builds</h2>
-                        <p class="card-text">Explorez les builds partages par d'autres joueurs.</p>
-                        <a href="#" class="btn btn-primary">Consulter</a>
+                        <p class="card-text">Explore Builds Shared by Other Users.</p>
+                        <a href="#" class="btn btn-primary">Consulte</a>
                     </div>
                 </div>
             </div>
@@ -119,9 +120,9 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <h2 class="card-title">Rechercher des Builds</h2>
-                        <p class="card-text">Trouvez des builds en fonction de vos preferences.</p>
-                        <a href="#" class="btn btn-primary">Rechercher</a>
+                        <h2 class="card-title">Search Builds</h2>
+                        <p class="card-text">Search & Sort Builds.</p>
+                        <a href="#" class="btn btn-primary">Search</a>
                     </div>
                 </div>
             </div>

@@ -49,14 +49,15 @@ body {
     text-shadow: 2px 2px white;
 }
 
-/* TEXTS */
-
-h1 {
-    color: #3498db;
-    text-align: center;
+/* BARRE DE RECHERCHE */
+#search-input{
+    width: 90%;
 }
 
-h3{
+
+/* TEXTS */
+
+h1,h3 {
     text-align: center;
 }
 
