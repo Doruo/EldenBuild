@@ -1,5 +1,5 @@
 <?php
-namespace App\Covoiturage\Configuration;
+namespace App\EldenBuild\Configuration;
 abstract class ConfigurationSite
 {
     private static array $configurationSite = array(

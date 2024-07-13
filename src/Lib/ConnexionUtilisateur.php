@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Covoiturage\Lib;
+namespace App\EldenBuild\Lib;
 
-use App\Covoiturage\Modele\HTTP\Session;
-use App\Covoiturage\Modele\Repository\UtilisateurRepository;
+use App\EldenBuild\Modele\HTTP\Session;
+use App\EldenBuild\Modele\Repository\UtilisateurRepository;
 
 class ConnexionUtilisateur
 {

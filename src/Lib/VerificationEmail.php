@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Covoiturage\Lib;
+namespace App\EldenBuild\Lib;
 
-use App\Covoiturage\Configuration\ConfigurationSite;
-use App\Covoiturage\Modele\DataObject\Utilisateur;
-use App\Covoiturage\Modele\Repository\UtilisateurRepository;
+use App\EldenBuild\Configuration\ConfigurationSite;
+use App\EldenBuild\Modele\DataObject\Utilisateur;
+use App\EldenBuild\Modele\Repository\UtilisateurRepository;
 
 class VerificationEmail
 {
@@ -23,11 +23,11 @@ class VerificationEmail
         $contenuHTML = "
         <html>
         <head>
-          <title>HAYE Marc Covoiturage - Validation adresse email</title>
+          <title>HAYE Marc EldenBuild - Validation adresse email</title>
         </head>
         <body>
           <p>
-          Merci de vous être inscrit sur le meilleur site de covoiturage ! 
+          Merci de vous être inscrit sur le meilleur site de eldenBuild ! 
           Pour valider votre adresse email, veuillez cliquer sur le lien suivant :</p>
           <a href=\"$lienValidationEmail\">Cliquez ici pour valider votre email</a>
           <p>Marc HAYE, Etudiant Informatique à l'IUT Montpellier-Sète.</p>

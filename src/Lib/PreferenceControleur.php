@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Covoiturage\Lib;
-use App\Covoiturage\Modele\HTTP\Cookie;
+namespace App\EldenBuild\Lib;
+use App\EldenBuild\Modele\HTTP\Cookie;
 
 class PreferenceControleur {
     private static string $clePreference = "preferenceControleur";

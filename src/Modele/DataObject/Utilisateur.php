@@ -1,5 +1,5 @@
 <?php
-namespace App\Covoiturage\Modele\DataObject;
+namespace App\EldenBuild\Modele\DataObject;
 
 class Utilisateur extends AbstractDataObject {
 

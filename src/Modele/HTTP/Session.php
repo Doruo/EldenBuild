@@ -1,7 +1,7 @@
 <?php
-namespace App\Covoiturage\Modele\HTTP;
+namespace App\EldenBuild\Modele\HTTP;
 
-use App\Covoiturage\Configuration\ConfigurationSite;
+use App\EldenBuild\Configuration\ConfigurationSite;
 use Exception;
 
 class Session

@@ -1,18 +1,17 @@
 <?php
 
-namespace App\Covoiturage\Controleur;
-use App\Covoiturage\Lib\ConnexionUtilisateur;
-use App\Covoiturage\Lib\MessageFlash;
-use App\Covoiturage\Lib\MotDePasse;
-use App\Covoiturage\Lib\VerificationEmail;
-use App\Covoiturage\Modele\DataObject\Utilisateur;
-use App\Covoiturage\Modele\Repository\UtilisateurRepository;
+namespace App\EldenBuild\Controleur;
+use App\EldenBuild\Lib\ConnexionUtilisateur;
+use App\EldenBuild\Lib\MessageFlash;
+use App\EldenBuild\Lib\MotDePasse;
+use App\EldenBuild\Lib\VerificationEmail;
+use App\EldenBuild\Modele\DataObject\Utilisateur;
+use App\EldenBuild\Modele\Repository\UtilisateurRepository;
+use Random\RandomException;
 
 class ControleurUtilisateur extends ControleurGenerique
 {
-    protected static function home() : void{
-        self::afficherVueGenerale();
-    }
+
 
     /** ------------------- READ ------------------- */
 
@@ -55,7 +54,7 @@ class ControleurUtilisateur extends ControleurGenerique
 
         $parametres = array(
             "utilisateur" => $utilisateur,
-            "pagetitle" => "Details Utilisateur",
+            "pagetitle" => "Profil",
             "cheminVueBody" => "/../utilisateur/detail.php"
         );
 
@@ -65,7 +64,7 @@ class ControleurUtilisateur extends ControleurGenerique
     /** ------------------- CREATE ------------------- */
     public static function afficherFormulaireCreation(): void{
         $parametres = array(
-            "pagetitle" => "Formulaire Utilisateur",
+            "pagetitle" => "Inscription",
             "cheminVueBody" =>  "/../utilisateur/formulaireCreation.php"
         );
         self::afficherVue("web/vueGenerale.php", $parametres);
@@ -107,7 +106,6 @@ class ControleurUtilisateur extends ControleurGenerique
             'emailAValider' => $_REQUEST['email'],
             'nonce' => MotDePasse::genererChaineAleatoire()
         );
-
 
         $utilisateurTableau['estAdmin'] = $estUtilisateurAdmin && (!is_null($_REQUEST['estAdmin'] || $_REQUEST['estAdmin'] = "on"));
 
@@ -274,7 +272,7 @@ class ControleurUtilisateur extends ControleurGenerique
     public static function afficherFormulaireConnexion(): void
     {
         $parametres = array(
-            "pagetitle" => "Site Covoiturage - Inscription",
+            "pagetitle" => "Site EldenBuild - Inscription",
             "cheminVueBody" =>  "/../utilisateur/formulaireConnexion.php"
         );
 

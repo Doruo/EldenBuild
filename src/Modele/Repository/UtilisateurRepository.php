@@ -1,6 +1,6 @@
 <?php
-namespace App\Covoiturage\Modele\Repository;
-use App\Covoiturage\Modele\DataObject\Utilisateur;
+namespace App\EldenBuild\Modele\Repository;
+use App\EldenBuild\Modele\DataObject\Utilisateur;
 class UtilisateurRepository extends AbstractRepository
 {
     /** ------------------- CREATE ------------------- */

@@ -1,6 +1,6 @@
 <?php
-namespace App\Covoiturage\Modele\Repository;
-use App\Covoiturage\Modele\DataObject\AbstractDataObject;
+namespace App\EldenBuild\Modele\Repository;
+use App\EldenBuild\Modele\DataObject\AbstractDataObject;
 use PDO;
 use PDOException;
 

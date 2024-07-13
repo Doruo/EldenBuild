@@ -1,9 +1,11 @@
 <?php
-namespace App\Covoiturage\Controleur;
-use App\Covoiturage\Lib\MessageFlash;
-use App\Covoiturage\Lib\PreferenceControleur;
+namespace App\EldenBuild\Controleur;
+use App\EldenBuild\Lib\MessageFlash;
+use App\EldenBuild\Lib\PreferenceControleur;
 
 abstract class ControleurGenerique {
+
+    public static function home() : void {self::afficherVueGenerale();}
 
     /** ------------------- READ ------------------- */
     protected static abstract function afficherListe();
@@ -30,8 +32,7 @@ abstract class ControleurGenerique {
     {
         $messagesFlash = MessageFlash::lireTousMessages();
         extract($parametres); // Crée des variables à partir du tableau $parametres
-        echo("AFKAPKFGAP");
-        require __DIR__ . "web/vueGenerale.php"; // Charge la vue
+        require __DIR__ . "/../vue/web/vueGenerale.php"; // Charge la vue
     }
 
     /** ------------------- DELETE ------------------- */
@@ -62,6 +63,6 @@ abstract class ControleurGenerique {
         }
         else MessageFlash::ajouter("danger","Votre préference n'a pas pu être enregistrée.");
 
-        self::redirectionVersURL('controleurFrontal.php?action=afficherListe');
+        self::redirectionVersURL('controleurFrontal.php?action=home');
     }
 }

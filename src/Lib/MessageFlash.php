@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Covoiturage\Lib;
+namespace App\EldenBuild\Lib;
 
-use App\Covoiturage\Modele\HTTP\Session;
+use App\EldenBuild\Modele\HTTP\Session;
 
 class MessageFlash {
     private static string $cleFlash = 'messagesFlash';

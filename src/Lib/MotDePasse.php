@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Covoiturage\Lib;
+namespace App\EldenBuild\Lib;
 
 use Random\RandomException;
 

@@ -1,5 +1,5 @@
 <?php
-namespace App\Covoiturage\Configuration;
+namespace App\EldenBuild\Configuration;
 abstract class ConfigurationBaseDeDonnees{
 
     // Le nom d'hote est webinfo a l'IUT

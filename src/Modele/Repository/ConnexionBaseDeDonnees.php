@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Covoiturage\Modele\Repository;
-use App\Covoiturage\Configuration\ConfigurationBaseDeDonnees;
+namespace App\EldenBuild\Modele\Repository;
+use App\EldenBuild\Configuration\ConfigurationBaseDeDonnees;
 use PDO;
 
 class ConnexionBaseDeDonnees

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Covoiturage\Modele\HTTP;
+namespace App\EldenBuild\Modele\HTTP;
 
 abstract class Cookie
 {
