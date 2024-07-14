@@ -7,12 +7,12 @@ async function getItemAPI (nameOrIndex) {
     try {
         console.log(`${ROOT_API_URL}/items?name=${nameOrIndex}`);
         let req = await fetch(`${ROOT_API_URL}/items?name=${nameOrIndex}`);
-        let data = await req.json();
-        if (data.success === true){
-            console.log("OUI");
-            console.log(data.data);
+        let resultat = await req.json();
+        if (resultat.success === true && resultat.data.length > 0){
+            console.log("success");
+            console.log("Description : "+resultat.data[0].description);
         }
-        else {console.log("NON");}
+        else {console.log("ECHEC");}
     } catch (error) {console.log(error);}
 }
 

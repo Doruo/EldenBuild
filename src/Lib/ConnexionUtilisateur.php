@@ -39,7 +39,7 @@ class ConnexionUtilisateur
     {
         if (!self::estConnecte()) return false;
         $utilisateur = (new UtilisateurRepository())->recupererParClePrimaire(self::getLoginUtilisateurConnecte());
-        return $utilisateur->formatTableau()['estAdminTag'];
+        return !is_null($utilisateur) && $utilisateur->formatTableau()['estAdminTag'];
     }
 }
 
