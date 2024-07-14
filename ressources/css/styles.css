@@ -8,6 +8,11 @@
 }
 
 @font-face {
+    font-family: 'dark-souls-SemiBold';
+    src: url('/ressources/fonts/OptimusPrincepsSemiBold.ttf');
+}
+
+@font-face {
     font-family: 'dark-souls';
     src: url('/ressources/fonts/OptimusPrincepsSemiBold.ttf');
 }

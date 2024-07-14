@@ -27,7 +27,7 @@
     <link href="/ressources/css/styles.css" rel="stylesheet">
 
     <!-- scripts JS -->
-    <script defer="defer" src="/ressources/js/base.js"></script>
+    <script defer="defer" src="/ressources/js/main.js"></script>
     <script defer="defer" src="/ressources/js/requetesAPI.js"></script>
 
 </head>
@@ -40,7 +40,7 @@
     <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
 
         <!-- TITRE -->
-        <a id="titre-princiale-menu" class="navbar-brand" href="/home">Elden Build</a>
+        <a id="titre-princiale-menu" class="navbar-brand" href="/home">Elden builD</a>
 
         <div class="collapse navbar-collapse" id="navbarNav">
 
