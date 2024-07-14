@@ -33,12 +33,14 @@ body {
     transition: background-image 3s;
 }
 
-/* ------------------------- NAVBAR ------------------------- */
+/* ------------------------- HEADER ------------------------- */
 
-#navbar{
+header{
     position: sticky;
     top:0;
 }
+
+/* ------------------------- NAVBAR ------------------------- */
 
 .nav-item.hidden {
     display: none;

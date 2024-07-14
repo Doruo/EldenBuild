@@ -42,7 +42,7 @@
         <!-- TITRE -->
         <a id="titre-princiale-menu" class="navbar-brand" href="/home">Elden builD</a>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse">
 
             <!-- ELEMENTS NAVBAR -->
             <ul class="navbar-nav ml-auto" id="main-menu">
