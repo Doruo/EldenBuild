@@ -200,4 +200,25 @@ footer {
     border-color: #ebccd1;
 }
 
+/* ------- Media Queries ------- */
+/* ------- (DOIT TJR ETRE A LA FIN DU CSS) ------- */
+
+@media (max-width: 600px)
+{
+
+
+    #titre-princiale{
+        font-size: 600%;
+        height:50%;
+    }
+
+    #titre-princiale-menu{
+        font-size:150%;
+    }
+
+    #sous-titre{
+        font-size:200%;
+    }
+}
+
 /* ------------------------- / ------------------------- */

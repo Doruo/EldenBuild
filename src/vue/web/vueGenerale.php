@@ -83,7 +83,7 @@
 
                 <!-- MENU -->
                 <li class="nav-item">
-                    <a class="nav-link menuOff" href="#" id="menu-toggle">▽</a>
+                    <a class="nav-link menuOff" id="menu-toggle">▽</a>
                 </li>
 
                 <!-- USERS -->
