@@ -1,6 +1,4 @@
-<?php
-
-echo '
+<?= '
     <div id="conteneurActions" class="container mt-5">
 
         <h1 id="titre-princiale" >-Elden Build-</h1>
