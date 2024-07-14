@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -16,26 +16,36 @@
         else echo "Elden Build";?>
     </title>
 
-    <!-- Boostrap, favicon & stylesheet CSS -->
+    <!-- Bootstrap -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- favicon -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- stylesheet CSS -->
     <link href="/ressources/css/styles.css" rel="stylesheet">
 
     <!-- scripts JS -->
     <script defer="defer" src="/ressources/js/base.js"></script>
     <script defer="defer" src="/ressources/js/requetesAPI.js"></script>
+
 </head>
 
 <body>
 
 <header>
+
+    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
 
         <!-- TITRE -->
         <a id="titre-princiale-menu" class="navbar-brand" href="/home">Elden Build</a>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
+
+            <!-- ELEMENTS NAVBAR -->
+            <ul class="navbar-nav ml-auto" id="main-menu">
 
                 <!-- RECHERCHE -->
                 <li class="nav-item navbar-text">
@@ -43,26 +53,6 @@
                         <label for="search-input"></label>
                         <input type="text" id="search-input" placeholder="🔍 Build or User"/>
                     </div>
-                </li>
-
-                <li class="nav-item"><h2 class="navbar-text">-</h2></li>
-
-                <!-- USERS -->
-                <li class="nav-item">
-                    <a class="nav-link" href="/afficherListe">
-                        <img class="img-icon" src="/ressources/images/icons/furlcalling_finger_remedy.webp" alt="furlcalling_finger_remedy"/>
-                        Users
-                    </a>
-                </li>
-
-                <li class="nav-item"><h2 class="navbar-text">-</h2></li>
-
-                <!-- TEST API -->
-                <li class="nav-item">
-                    <a class="nav-link" href="/testApi">
-                        <img class="img-icon" src="/ressources/images/icons/telescope.webp" alt="telescope"/>
-                        Test API
-                    </a>
                 </li>
 
                 <!-- INSCRIPTION -->
@@ -91,20 +81,28 @@
                 }
                 ?>
 
-                <!-- DECONNEXION -->
-                <?php
-                if (ConnexionUtilisateur::estConnecte()){
-                    echo '<li class="nav-item"><h2 class="navbar-text">-</h2></li>';
-                    echo '            
+                <!-- MENU -->
                 <li class="nav-item">
-                    <img class="img-icon" src="/ressources/images/icons/memory-of-grace.webp" alt="memory-of-grace"/>  
-                    <a class="navbar-text" href="controleurFrontal.php?controleur=utilisateur&action=deconnecter" id="logout">   
-                        Log Out
-                    </a>
-                </li>';
-                }
-                ?>
+                    <a class="nav-link menuOff" href="#" id="menu-toggle">▽</a>
+                </li>
 
+                <!-- USERS -->
+                <li class="nav-item hidden">
+                    <a class="nav-link" href="/afficherListe">
+                        <img class="img-icon" src="/ressources/images/icons/furlcalling_finger_remedy.webp" alt="furlcalling_finger_remedy"/>
+                        Users
+                    </a>
+                </li>
+
+                <li class="nav-item navbar-text hidden"><h2 class="navbar-text">-</h2></li>
+
+                <!-- TEST API -->
+                <li class="nav-item hidden">
+                    <a class="nav-link" href="/testApi">
+                        <img class="img-icon" src="/ressources/images/icons/telescope.webp" alt="telescope"/>
+                        Test API
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>

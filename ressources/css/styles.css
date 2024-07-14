@@ -29,9 +29,34 @@ body {
 }
 
 /* ------------------------- NAVBAR ------------------------- */
+
 #navbar{
     position: sticky;
     top:0;
+}
+
+.nav-item.hidden {
+    display: none;
+}
+.nav-item.slide-in {
+    animation: slideIn 0.5s forwards;
+}
+.nav-item.slide-out {
+    animation: slideOut 0.5s forwards;
+}
+@keyframes slideIn {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideOut {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(-100%); opacity: 0; }
+}
+
+/* ------------------------- BARRE DE RECHERCHE ------------------------- */
+
+#search-input{
+    width: 90%;
 }
 
 /* ------------------------- TITRE PRINCIPALE ------------------------- */
@@ -55,12 +80,6 @@ body {
     text-shadow: 2px 2px white;
     color: #000000;
 }
-
-/* ------------------------- BARRE DE RECHERCHE ------------------------- */
-#search-input{
-    width: 90%;
-}
-
 
 /* ------------------------- TEXTES ------------------------- */
 

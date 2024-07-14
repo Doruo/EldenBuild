@@ -1,4 +1,44 @@
+
 /** SCRIPT BASE JS ELDEN BUILD */
+
+/** --------------------- MENU NAVBAR --------------------- */
+
+const menuToggle = document.getElementById('menu-toggle');
+
+menuToggle.addEventListener('click', function() {
+
+    if (menuToggle.classList.contains("menuOff"))
+    {
+        menuToggle.textContent="▻";
+        menuToggle.classList.remove("menuOff");
+        menuToggle.classList.add("menuOn");
+        
+        let items = document.querySelectorAll('.navbar-nav .nav-item.hidden');
+
+        items.forEach(function(item) {
+            item.classList.remove('hidden');
+            item.classList.add('visible');
+            item.classList.remove('slide-out');
+            item.classList.add('slide-in');
+        });
+    }
+    else if (menuToggle.classList.contains("menuOn"))
+    {
+        menuToggle.textContent="▽";
+        menuToggle.classList.remove("menuOn");
+        menuToggle.classList.add("menuOff");
+
+        let items = document.querySelectorAll('.navbar-nav .nav-item.visible');
+
+        items.forEach(function(item) {
+            item.classList.remove('slide-in');
+            item.classList.add('slide-out');
+            setTimeout(function() {
+                item.classList.add('hidden');
+            }, 500); // Durée de l'animation
+        });
+    }
+});
 
 /**--------------------- BACKGROUND & DEFILEMENT ---------------------*/
 
