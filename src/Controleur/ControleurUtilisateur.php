@@ -149,8 +149,6 @@ class ControleurUtilisateur extends ControleurGenerique
             "cheminVueBody" => "/../utilisateur/formulaireMiseAJour.php",
 
             "login" => $login,
-            "nom" => $utilisateur->formatTableau()['nomTag'],
-            "prenom" => $utilisateur->formatTableau()['prenomTag'],
             "mail" => $utilisateur->formatTableau()['emailTag']
         );
         self::afficherVue("web/vueGenerale.php",$parametres);
@@ -162,8 +160,6 @@ class ControleurUtilisateur extends ControleurGenerique
         $utilisateurEstAdmin = ConnexionUtilisateur::estAdministrateur();
 
         $login = $_REQUEST['login'];
-        $nom = $_REQUEST['nom'];
-        $prenom = $_REQUEST['prenom'];
         if (!$utilisateurEstAdmin) $ancienMdp = $_REQUEST['ancienMdp'];
         $mdp = $_REQUEST['mdp'];
         $mdp2 = $_REQUEST['mdp2'];
@@ -171,12 +167,9 @@ class ControleurUtilisateur extends ControleurGenerique
         $mail = $_REQUEST['email'];
 
         // vérifiez que tous les champs obligatoires du formulaire ont été transmis
-
-        if (is_null($login) || is_null($nom) || is_null($prenom)
-            || (!$utilisateurEstAdmin && is_null($ancienMdp))
-            || is_null($mdp) || is_null($mdp2)) {
-
-            MessageFlash::ajouter("warning","Remplissez bien tous les champs");
+        if (is_null($login) || is_null($mdp) || is_null($mdp2) || (!$utilisateurEstAdmin && is_null($ancienMdp)))
+        {
+            MessageFlash::ajouter("warning","Please fill all necessary fields");
             self::redirectionVersURL('controleurFrontal.php?action=afficherFormulaireMiseAJour&login='.$login.'&controleur=utilisateur');
             return;
         }

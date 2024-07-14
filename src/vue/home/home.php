@@ -10,11 +10,9 @@ echo '
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-
                         <h2 class="card-title">Create a New Build</h2>
                         <p class="card-text">Start Your Very Own Build.</p>
                         <a href="#" class="btn btn-primary">Create</a>
-
                     </div>
                 </div>
             </div>

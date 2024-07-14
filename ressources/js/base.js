@@ -11,10 +11,10 @@ const images = [
 ];
 
 let indexImages = 0;
-changeBackGround("dephts");
+changeBackGround("liurnia");
 
 // Defilement arrière-plan
-//const chb = setInterval(changeBackGroundSuivant, 20000);
+// const chb = setInterval(changeBackGroundSuivant, 20000);
 
 function changeBackGroundSuivant(){
     document.body.style.backgroundImage = `url('${images[indexImages]}')`;
@@ -34,3 +34,17 @@ function stopperDefilement(){
 }
 
 /**--------------------- BACKGROUND & DEFILEMENT ---------------------*/
+
+function creerItem(data){
+    // div principal
+    const item = document.createElement('div');
+    item.classList.add('item');
+
+    // Ajoute div principal dans la liste
+    document.getElementById('item-list').appendChild(item);
+
+    // nom
+    const name = document.createElement('h2');
+    name.textContent = `${data.name}`;
+    item.appendChild(name);
+}

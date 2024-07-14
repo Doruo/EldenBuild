@@ -22,24 +22,6 @@ use App\EldenBuild\Lib\ConnexionUtilisateur;
                    value="<?=/** @var $login */$login ?>">
         </p>
 
-        <!-- NOM -->
-
-        <p class="InputAddOn">
-            <label class="InputAddOn-item" for="nom_id">Nom&#42;</label>
-
-            <input class="InputAddOn-field" type="text" name="nom" id="nom_id" required
-                   value="<?=/** @var string $nom */$nom ?>">
-        </p>
-
-        <!-- PRENOM -->
-
-        <p class="InputAddOn">
-            <label class="InputAddOn-item" for="prenom_id">Prenom&#42;</label>
-
-            <input class="InputAddOn-field" type="text" name="prenom" id="prenom_id" required
-                   value="<?=/** @var string $prenom */ $prenom ?>">
-        </p>
-
         <!-- MAIL -->
 
         <p class="InputAddOn">
@@ -83,8 +65,6 @@ use App\EldenBuild\Lib\ConnexionUtilisateur;
             if(ConnexionUtilisateur::estAdministrateur() && ConnexionUtilisateur::estUtilisateur($login)) echo "checked";
         echo '></p>';
         ?>
-
-
 
         <!-- ENOVOYER -->
 

@@ -12,8 +12,8 @@
     <title>
         <?php
         /** @var $pagetitle */
-        if (!isset($pagetitle)) echo "Elden Build";
-        else echo "Elden Build - ".$pagetitle; ?>
+        if (isset($pagetitle)) echo "Elden Build - ".$pagetitle;
+        else echo "Elden Build";?>
     </title>
 
     <!-- Boostrap, favicon & stylesheet CSS -->
@@ -32,7 +32,7 @@
     <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
 
         <!-- TITRE -->
-        <a id="titre-princiale-menu" class="navbar-brand" href="home">Elden Build</a>
+        <a id="titre-princiale-menu" class="navbar-brand" href="/home">Elden Build</a>
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
@@ -43,6 +43,26 @@
                         <label for="search-input"></label>
                         <input type="text" id="search-input" placeholder="🔍 Build or User"/>
                     </div>
+                </li>
+
+                <li class="nav-item"><h2 class="navbar-text">-</h2></li>
+
+                <!-- USERS -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/afficherListe">
+                        <img class="img-icon" src="/ressources/images/icons/furlcalling_finger_remedy.webp" alt="furlcalling_finger_remedy"/>
+                        Users
+                    </a>
+                </li>
+
+                <li class="nav-item"><h2 class="navbar-text">-</h2></li>
+
+                <!-- TEST API -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/testApi">
+                        <img class="img-icon" src="/ressources/images/icons/telescope.webp" alt="telescope"/>
+                        Test API
+                    </a>
                 </li>
 
                 <!-- INSCRIPTION -->
@@ -72,7 +92,6 @@
                 ?>
 
                 <!-- DECONNEXION -->
-
                 <?php
                 if (ConnexionUtilisateur::estConnecte()){
                     echo '<li class="nav-item"><h2 class="navbar-text">-</h2></li>';
@@ -84,28 +103,7 @@
                     </a>
                 </li>';
                 }
-
                 ?>
-
-                <li class="nav-item"><h2 class="navbar-text">-</h2></li>
-
-                <!-- USERS -->
-                <li class="nav-item">
-                    <a class="nav-link" href="/afficherListe">
-                        <img class="img-icon" src="/ressources/images/icons/furlcalling_finger_remedy.webp" alt="furlcalling_finger_remedy"/>
-                        Users
-                    </a>
-                </li>
-
-                <li class="nav-item"><h2 class="navbar-text">-</h2></li>
-
-                <!-- TEST API -->
-                <li class="nav-item">
-                    <a class="nav-link" href="/afficherListe">
-                        <img class="img-icon" src="/ressources/images/icons/telescope.webp" alt="telescope"/>
-                        Test API
-                    </a>
-                </li>
 
             </ul>
         </div>
@@ -119,8 +117,6 @@
         foreach($messagesFlash as $type => $messagesFlashPourUnType)
         {
             // $type est l'une des valeurs suivantes : "success", "info", "warning", "danger"
-            // $messagesFlashPourUnType est la liste des messages flash d'un type
-
             foreach ($messagesFlashPourUnType as $messageFlash) {
                 echo <<< HTML
             <div class="alert alert-$type">
@@ -136,7 +132,6 @@
 
 <main>
     <?php if (ConfigurationSite::getDebug()) echo "<div><h1>MODE DEBUG ACTIF</h1></div>";
-
     /** @var $cheminVueBody */ require __DIR__ . $cheminVueBody ?>
 </main>
 

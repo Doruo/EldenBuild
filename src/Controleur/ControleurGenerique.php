@@ -68,4 +68,16 @@ abstract class ControleurGenerique {
 
         self::redirectionVersURL('controleurFrontal.php?action=home');
     }
+
+    /** ------------------- TEST API ------------------- */
+
+    public static function testApi(): void
+    {
+        $parametres = array(
+            "pagetitle" => "TEST API",
+            "cheminVueBody" => "/../home/testApi.php",
+        );
+
+        self::afficherVue('web/vueGenerale.php',$parametres);
+    }
 }

@@ -41,7 +41,7 @@ if (class_exists($nomDeClasseControleur)) {
     if (in_array($action,get_class_methods($nomDeClasseControleur)))
         $nomDeClasseControleur::$action();
     else {
-        MessageFlash::ajouter("danger","Cette action n'existe pas pour : ".$nomDeClasseControleur);
+        MessageFlash::ajouter("danger","Cette action: ".$action." n'existe pas pour : ".$nomDeClasseControleur);
         ControleurGenerique::redirectionVersURL("controleurFrontal.php?action=home");
     }
 }
