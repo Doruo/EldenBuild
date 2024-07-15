@@ -71,13 +71,12 @@ abstract class ControleurGenerique {
 
     /** ------------------- TEST API ------------------- */
 
-    public static function testApi(): void
+    public static function info(): void
     {
         $parametres = array(
-            "pagetitle" => "TEST API",
-            "cheminVueBody" => "/../home/testApi.php",
+            "pagetitle" => "Informations",
+            "cheminVueBody" => "/../info/info.php",
         );
-
-        self::afficherVue('web/vueGenerale.php',$parametres);
+        self::afficherVueGenerale($parametres);
     }
 }

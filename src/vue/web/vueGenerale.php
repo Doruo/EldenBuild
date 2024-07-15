@@ -96,9 +96,9 @@
 
                 <li class="nav-item navbar-text hidden"><h2 class="navbar-text">-</h2></li>
 
-                <!-- TEST API -->
+                <!-- INFO REQUETE API -->
                 <li class="nav-item hidden">
-                    <a class="nav-link" href="/testApi">
+                    <a class="nav-link" href="/info">
                         <img class="img-icon" src="/ressources/images/icons/telescope.webp" alt="telescope"/>
                         Test API
                     </a>

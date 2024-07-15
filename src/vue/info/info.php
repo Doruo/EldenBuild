@@ -1,6 +1,6 @@
 
 <div class="container mt-5">
-    <a onclick="testItemAPI()" id="testAPI-link">CLICK TEST "BLUE"</a>
+    <a id="testAPI-link">CLICK POUR ITEM RANDOM</a>
     <div class="list-group">
         <div class="row" id="card-list"></div>
     </div>

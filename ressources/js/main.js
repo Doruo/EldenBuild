@@ -78,6 +78,14 @@ searchBar.addEventListener('change', async () => {
     const searchValue = await getSearchInput();
 });
 
+/** --------------------- LIEN REQUETE API ALEATOIRE --------------------- */
+
+let lienTestApi = document.getElementById('testAPI-link');
+
+if (lienTestApi !== null)
+    lienTestApi.addEventListener('click', () => getRandomFromAPI("items"));
+
+
 /** --------------------- ITEMS --------------------- */
 
 function addItemCard(data) {
@@ -124,8 +132,12 @@ function addItemCard(data) {
     document.getElementById('card-list').appendChild(card);
 }
 
-document.getElementById('testAPI-link').addEventListener('change', () => testItemAPI());
-
-async function testItemAPI() {
-    await getItemAPI("Blue", "items");
+function randomMinMax(min, max) {
+    // échange leur valeurs si erronés
+    if (min > max) {
+        let temp = min;
+        min = max;
+        max = temp;
+    }
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
