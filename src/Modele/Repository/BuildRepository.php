@@ -13,14 +13,15 @@ class BuildRepository extends AbstractRepository
             $objetFormatTableau['nomBuild'],
             $objetFormatTableau['description'],
             $objetFormatTableau['dateCreation'],
-            $objetFormatTableau['visibilite']
+            $objetFormatTableau['visibilite'],
+            $objetFormatTableau['login']
         );
     }
 
     protected function getNomTable(): string {return "builds";}
 
     protected function getNomsColonnes(): array{
-        return ["idBuild", "nomBuild","description","dateCreation","visibilite"];
+        return ["idBuild", "nomBuild","description","dateCreation","visibilite","login"];
     }
 
     protected function getNomClePrimaire(): string {return "idBuild";}

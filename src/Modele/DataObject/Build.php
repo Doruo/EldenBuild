@@ -9,23 +9,26 @@ class Build extends AbstractDataObject
     private string $description;
     private string $dateCreation;
     private string $visibilite;
+    private string $login;
 
-    public function __construct(?int $idBuild, string $nomBuild, string $description,string $dateCreation,string $visibilite)
+    public function __construct(?int $idBuild, string $nomBuild, string $description,string $dateCreation,string $visibilite,string $login)
     {
         $this->idBuild = $idBuild;
         $this->nomBuild = $nomBuild;
         $this->description = $description;
         $this->dateCreation = $dateCreation;
         $this->visibilite = $visibilite;
+        $this->login = $login;
     }
 
-    public function formatTableau(): array{
+    public function formatTableau(): array {
         return array(
-            "loginTag" => $this->getIdBuild(),
-            "mdpHacheTag" => $this->getNomBuild(),
-            "emailTag" => $this->getDescription(),
-            "emailAValiderTag" => $this->getDateCreation(),
-            "nonceTag" => $this->getVisibilite()
+            "idBuildTag" => $this->getIdBuild(),
+            "nomBuildTag" => $this->getNomBuild(),
+            "descriptionTag" => $this->getDescription(),
+            "dateCreationTag" => $this->getDateCreation(),
+            "visibiliteTag" => $this->getVisibilite(),
+            "loginTag" => $this->getLogin()
         );
     }
 
@@ -35,7 +38,8 @@ class Build extends AbstractDataObject
             $tableauFormulaire['nomBuild'],
             $tableauFormulaire['description'],
             $tableauFormulaire['dateCreation'],
-            $tableauFormulaire['visibilite']
+            $tableauFormulaire['visibilite'],
+            $tableauFormulaire['login']
         );
     }
 
@@ -50,6 +54,8 @@ class Build extends AbstractDataObject
     public function getDateCreation(): string{return $this->dateCreation;}
 
     public function getVisibilite(): string{return $this->visibilite;}
+
+    public function getLogin(): string{return $this->login;}
 
     /** SETTERS */
 }

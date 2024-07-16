@@ -28,10 +28,6 @@ echo "<h2>Builds : </h2>";
 
 if (ConnexionUtilisateur::estConnecte() && (ConnexionUtilisateur::estUtilisateur($login) || ConnexionUtilisateur::estAdministrateur()))
 {
-    echo '<h1><a href="../web/controleurFrontal.php?controleur=utilisateur&action=afficherFormulaireMiseAJour&login='
-        . $loginURL . '">Modify Profile</a></h1>';
-
-    echo'<h1><a href="../web/controleurFrontal.php?controleur=Utilisateur&action=supprimer&login=' . $loginURL . '">Delete Account</a></h1>';
+    echo '<h1><a href="/showFormModify&login='.$loginURL.'">Modify Profile</a></h1>';
+    echo'<h1><a href="/delete&login='.$loginURL.'">Delete Account</a></h1>';
 }
-
-
