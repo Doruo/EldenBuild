@@ -38,7 +38,7 @@ menuToggle.addEventListener('click', function () {
     }
 });
 
-/**--------------------- BACKGROUND & DEFILEMENT ---------------------*/
+/**--------------------- BACKGROUND ---------------------*/
 
 const IMAGES_BACKGROUNDS_URL = "/ressources/images/backgrounds";
 
@@ -78,12 +78,12 @@ searchBar.addEventListener('change', async () => {
     const searchValue = await getSearchInput();
 });
 
-/** --------------------- LIEN REQUETE API ALEATOIRE --------------------- */
+/** --------------------- LIEN TEST REQUETE API --------------------- */
 
 let lienTestApi = document.getElementById('testAPI-link');
 
 if (lienTestApi !== null)
-    lienTestApi.addEventListener('click', () => getRandomFromAPI("items"));
+    lienTestApi.addEventListener('click', () => getRandomFromAPI("weapons"));
 
 
 /** --------------------- ITEMS --------------------- */
@@ -132,6 +132,8 @@ function addItemCard(data) {
     document.getElementById('card-list').appendChild(card);
 }
 
+/** --------------------- FONCTIONS UTILITAIRES --------------------- */
+
 function randomMinMax(min, max) {
     // échange leur valeurs si erronés
     if (min > max) {
@@ -141,3 +143,5 @@ function randomMinMax(min, max) {
     }
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+/** --------------------- * --------------------- */
