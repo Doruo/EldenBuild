@@ -262,10 +262,9 @@ class ControleurUtilisateur extends ControleurBase
     public static function showFormConnect(): void
     {
         $parametres = array(
-            "pagetitle" => "Connexion",
+            "pagetitle" => "Log In",
             "cheminVueBody" =>  "/../utilisateur/formulaireConnexion.php"
         );
-
         self::afficherVueGenerale($parametres);
     }
 

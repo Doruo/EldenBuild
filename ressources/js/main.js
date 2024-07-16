@@ -82,9 +82,12 @@ searchBar.addEventListener('change', async () => {
 
 let lienTestApi = document.getElementById('testAPI-link');
 
-if (lienTestApi !== null)
-    lienTestApi.addEventListener('click', () => getRandomFromAPI("weapons"));
-
+if (lienTestApi !== null){
+    lienTestApi.addEventListener('click', () =>
+        getEquipment("weapons")
+            .then(reponse => addItemCard(reponse[0]))
+    );
+}
 
 /** --------------------- ITEMS --------------------- */
 

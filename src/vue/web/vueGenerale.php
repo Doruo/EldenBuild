@@ -28,7 +28,7 @@
 
     <!-- scripts JS -->
     <script defer="defer" src="/ressources/js/main.js"></script>
-    <script defer="defer" src="/ressources/js/requetesAPI.js"></script>
+    <script defer="defer" src="/ressources/js/requests.js"></script>
 
 </head>
 
