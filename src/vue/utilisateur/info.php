@@ -15,15 +15,14 @@ $mailHTML = htmlspecialchars($utilisateur->getEmail());
 
 echo "<h2>- ".$loginHTML." -</h2>";
 
-/** EMAIL */
-
-if ($utilisateur->getEmail() == "") echo "<h2>Email à valider : " . htmlspecialchars($utilisateur->getEmailAValider())."</h2>";
-else echo "<h2>Email : " . $mailHTML . "</h2>";
-
 /** ADMIN */
 
 $estAdmin = $utilisateur->estAdmin() ? "Admin" : "User";
 echo "<h2>Status : " . $estAdmin ."</h2>";
+
+/** BUILDS */
+
+echo "<h2>Builds : </h2>";
 
 /** ACTIONS MODIFICATION */
 

@@ -42,10 +42,10 @@ if (class_exists($nomDeClasseControleur)) {
         $nomDeClasseControleur::$action();
     else {
         MessageFlash::ajouter("danger","Cette action: ".$action." n'existe pas pour : ".$nomDeClasseControleur);
-        ControleurGenerique::redirectionVersURL("controleurFrontal.php?action=home");
+        ControleurGenerique::redirect("/home");
     }
 }
 else {
     MessageFlash::ajouter("danger",$nomDeClasseControleur." n'existe pas");
-    ControleurGenerique::redirectionVersURL("controleurFrontal.php?action=home");
+    ControleurGenerique::redirect("/home");
 }

@@ -11,7 +11,7 @@ foreach ($utilisateurs as $utilisateur) {
     echo "<div class=\"encadre\"> ";
     echo
         '<h1>' .
-        '<a href="../web/controleurFrontal.php?action=afficherDetail&controleur=utilisateur&login=' . $loginURL . '">'
+        '<a href="/info&login=' . $loginURL . '">'
         .$loginHTML. '</a></h1></div>';
 }
 

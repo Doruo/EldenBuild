@@ -11,16 +11,7 @@ abstract class ControleurGenerique {
     }
 
     /** ------------------- READ ------------------- */
-    protected static abstract function afficherListe();
-    protected abstract static function afficherDetail();
-
-    /** ------------------- CREATE ------------------- */
-    protected abstract static function afficherFormulaireCreation();
-    protected abstract static function creerDepuisFormulaire();
-
-    /** ------------------- UPDATE ------------------- */
-    protected abstract static function afficherFormulaireMiseAJour();
-    protected abstract static function mettreAJour();
+    protected abstract static function info(); // *
 
     /** ------------------- AFFICHAGE VUES ------------------- */
     protected static function afficherVue(string $cheminVue, array $parametres = []): void
@@ -38,15 +29,12 @@ abstract class ControleurGenerique {
         require __DIR__ . "/../vue/web/vueGenerale.php"; // Charge la vue
     }
 
-    /** ------------------- DELETE ------------------- */
-    protected abstract static function supprimer();
-
     /** ------------------- MESSAGES FLASHS ------------------- */
-    public static function redirectionVersURL(string $url) : void{
+    public static function redirect(string $url) : void{
         header("Location: $url");
     }
     /** ------------------- PREFERENCE CONTROLEUR ------------------- */
-    public static function afficherFormulairePreference() : void
+    public static function showFormPreference() : void
     {
         $parametres = array(
             "pagetitle" => "Formulaire Preference",
@@ -56,7 +44,7 @@ abstract class ControleurGenerique {
         self::afficherVue('web/vueGenerale.php',$parametres);
     }
 
-    public static function enregistrerPreference() : void
+    public static function registerPreference() : void
     {
         $controleurDefaut = $_REQUEST['controleur_defaut'];
 
@@ -66,17 +54,6 @@ abstract class ControleurGenerique {
         }
         else MessageFlash::ajouter("danger","Votre préference n'a pas pu être enregistrée.");
 
-        self::redirectionVersURL('controleurFrontal.php?action=home');
-    }
-
-    /** ------------------- TEST API ------------------- */
-
-    public static function info(): void
-    {
-        $parametres = array(
-            "pagetitle" => "Informations",
-            "cheminVueBody" => "/../info/info.php",
-        );
-        self::afficherVueGenerale($parametres);
+        self::redirect('controleurFrontal.php?action=home');
     }
 }

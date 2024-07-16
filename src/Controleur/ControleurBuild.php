@@ -2,41 +2,35 @@
 
 namespace App\EldenBuild\Controleur;
 
-class ControleurBuild extends ControleurGenerique
+class ControleurBuild extends ControleurBase
 {
-
-    protected static function afficherListe()
+    protected static function info()
     {
-        // TODO: Implement afficherListe() method.
+        // TODO: Implement info() method.
     }
 
-    protected static function afficherDetail()
+    protected static function showFormCreate()
     {
-        // TODO: Implement afficherDetail() method.
+        // TODO: Implement showFormCreate() method.
     }
 
-    protected static function afficherFormulaireCreation()
+    protected static function create()
     {
-        // TODO: Implement afficherFormulaireCreation() method.
+        // TODO: Implement create() method.
     }
 
-    protected static function creerDepuisFormulaire()
+    protected static function showFormModify()
     {
-        // TODO: Implement creerDepuisFormulaire() method.
+        // TODO: Implement showFormModify() method.
     }
 
-    protected static function afficherFormulaireMiseAJour()
+    protected static function modify()
     {
-        // TODO: Implement afficherFormulaireMiseAJour() method.
+        // TODO: Implement modify() method.
     }
 
-    protected static function mettreAJour()
+    protected static function delete()
     {
-        // TODO: Implement mettreAJour() method.
-    }
-
-    protected static function supprimer()
-    {
-        // TODO: Implement supprimer() method.
+        // TODO: Implement delete() method.
     }
 }

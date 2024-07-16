@@ -9,12 +9,13 @@ use App\EldenBuild\Modele\DataObject\Utilisateur;
 use App\EldenBuild\Modele\Repository\UtilisateurRepository;
 use Random\RandomException;
 
-class ControleurUtilisateur extends ControleurGenerique
+class ControleurUtilisateur extends ControleurBase
 {
 
     /** ------------------- READ ------------------- */
 
-    public static function afficherListe(): void
+    // A SUPPRIMER A L'AVENIR (OPTIONNEL)
+    public static function showList(): void
     {
         // Appel au modèle pour gérer la BD
         $utilisateurs = (new UtilisateurRepository())->recuperer();
@@ -34,15 +35,13 @@ class ControleurUtilisateur extends ControleurGenerique
         self::afficherVueGenerale($parametres);
     }
 
-    public static function afficherDetail(): void
+    public static function info(): void
     {
         $login = $_REQUEST["login"];
 
-        $pagetitle = ConnexionUtilisateur::estUtilisateur($login) ? "Your Profile" : "Profile";
-
         $parametres = array(
-            "pagetitle" => $pagetitle,
-            "cheminVueBody" => "/../utilisateur/detail.php"
+            "pagetitle" => "Profile: ".$login,
+            "cheminVueBody" => "/../utilisateur/info.php"
         );
 
         if (is_null($login)){
@@ -55,40 +54,39 @@ class ControleurUtilisateur extends ControleurGenerique
 
         if (!$utilisateur) {
             MessageFlash::ajouter("warning","Login inconnu");
-            self::afficherListe();
+            self::showList();
             return;
         }
 
         $parametres['utilisateur'] = $utilisateur;
-        self::afficherVue('web/vueGenerale.php', $parametres);
+        self::afficherVueGenerale($parametres);
     }
 
     /** ------------------- CREATE ------------------- */
-    public static function afficherFormulaireCreation(): void{
+    public static function showFormCreate(): void{
         $parametres = array(
-            "pagetitle" => "Inscription",
+            "pagetitle" => "Sign Up",
             "cheminVueBody" =>  "/../utilisateur/formulaireCreation.php"
         );
         self::afficherVueGenerale($parametres);
     }
 
     /**@throws RandomException */
-    public static function creerDepuisFormulaire(): void
+    public static function create(): void
     {
         // MDP et ressaisie doivent etre les mêmes
         if ($_REQUEST['mdp'] != $_REQUEST['mdp2']){
             MessageFlash::ajouter("danger","Mots de passe doivent être identiques");
-            self::redirectionVersURL('controleurFrontal.php?action=creerDepuisFormulaire&controleur=utilisateur');
+            self::redirect('/create');
             return;
         }
 
         // Login ne doit pas déjà exister dans la BD
         if (!is_null((new UtilisateurRepository())->recupererParClePrimaire($_REQUEST['login']))){
             MessageFlash::ajouter("warning","Ce login existe déjà");
-            self::redirectionVersURL('controleurFrontal.php?action=creerDepuisFormulaire&controleur=utilisateur');
+            self::redirect('/create');
             return;
         }
-
 
         // Verif Adr mail valide
         /*
@@ -121,18 +119,18 @@ class ControleurUtilisateur extends ControleurGenerique
         if (!$estUtilisateurAdmin) ConnexionUtilisateur::connecter($utilisateur->getLogin());
 
         MessageFlash::ajouter("success","Utilisateur ".$utilisateur->getLogin()." crée !");
-        self::afficherListe();
+        self::home();
     }
 
     /** ------------------- UPDATE ------------------- */
 
-    public static function afficherFormulaireMiseAJour(): void
+    public static function showFormModify(): void
     {
         $login = $_REQUEST['login'];
 
         if (!ConnexionUtilisateur::estAdministrateur() && !ConnexionUtilisateur::estUtilisateur($login)){
             MessageFlash::ajouter("warning","La mise à jour n’est possible que pour l’utilisateur connecté ou par un admin");
-            self::redirectionVersURL('controleurFrontal.php?action=afficherFormulaireMiseAJour&login='.$login.'&controleur=utilisateur');
+            self::redirect('/showFormModify&login='.$login);
             return;
         }
 
@@ -140,22 +138,22 @@ class ControleurUtilisateur extends ControleurGenerique
 
         if (is_null($utilisateur)) {
             MessageFlash::ajouter("warning","Aucun Utilisateur " . $login);
-            self::redirectionVersURL('controleurFrontal.php?action=afficherFormulaireMiseAJour&login='.$login.'&controleur=utilisateur');
+            self::redirect('/showFormModify&login='.$login);
             return;
         }
 
         $parametres = array(
-            "pagetitle" => "Modifier un Utilisateur",
+            "pagetitle" => "Modify User",
             "cheminVueBody" => "/../utilisateur/formulaireMiseAJour.php",
 
             "login" => $login,
             "mail" => $utilisateur->formatTableau()['emailTag']
         );
-        self::afficherVue("web/vueGenerale.php",$parametres);
+        self::afficherVueGenerale($parametres);
     }
 
     /** @throws RandomException */
-    public static function mettreAJour(): void
+    public static function modify(): void
     {
         $utilisateurEstAdmin = ConnexionUtilisateur::estAdministrateur();
 
@@ -170,7 +168,7 @@ class ControleurUtilisateur extends ControleurGenerique
         if (is_null($login) || is_null($mdp) || is_null($mdp2) || (!$utilisateurEstAdmin && is_null($ancienMdp)))
         {
             MessageFlash::ajouter("warning","Please fill all necessary fields");
-            self::redirectionVersURL('controleurFrontal.php?action=afficherFormulaireMiseAJour&login='.$login.'&controleur=utilisateur');
+            self::redirect('/showFormModify&login='.$login);
             return;
         }
 
@@ -180,28 +178,28 @@ class ControleurUtilisateur extends ControleurGenerique
         // Vérifiez que le login existe
         if (is_null($utilisateur)){
             MessageFlash::ajouter("warning","Aucun Utilisateur ".$login);
-            self::redirectionVersURL('controleurFrontal.php?action=afficherFormulaireMiseAJour&login='.$login.'&controleur=utilisateur');
+            self::redirect('/showFormModify&login='.$login);
             return;
         }
 
         // Vérifiez que l’utilisateur mis-à-jour correspond à l’utilisateur connecté
         if (!$utilisateurEstAdmin && !ConnexionUtilisateur::estUtilisateur($login)){
             MessageFlash::ajouter("warning","La mise à jour n’est possible que pour l’utilisateur connecté ou par un admin");
-            self::redirectionVersURL('controleurFrontal.php?action=afficherFormulaireMiseAJour&login='.$login.'&controleur=utilisateur');
+            self::redirect('/showFormModify&login='.$login);
             return;
         }
 
         // Vérifiez que les 2 nouveaux mots de passe coïncident
         if ($mdp != $mdp2){
             MessageFlash::ajouter("warning","Mots de passe identiques dans les deux champs requis");
-            self::redirectionVersURL('controleurFrontal.php?action=afficherFormulaireMiseAJour&login='.$login.'&controleur=utilisateur');
+            self::redirect('/showFormModify&login='.$login);
             return;
         }
 
         // Vérifiez que l’ancien mot de passe est correct
         if (!$utilisateurEstAdmin && isset($ancienMdp) && !MotDePasse::verifier($ancienMdp, $utilisateur->formatTableau()['mdpTag'])){
-            MessageFlash::ajouter("warning","Ancien mot de passe erroné");
-            self::redirectionVersURL('controleurFrontal.php?action=afficherFormulaireMiseAJour&login='.$login.'&controleur=utilisateur');
+            MessageFlash::ajouter("warning","Wrong former password");
+            self::redirect('/showFormModify&login='.$login);
             return;
         }
 
@@ -216,64 +214,62 @@ class ControleurUtilisateur extends ControleurGenerique
 
         (new UtilisateurRepository())->mettreAJour($utilisateur);
 
-        MessageFlash::ajouter("success","Utilisateur ".$utilisateur->getLogin()." mis à jour !");
-        self::redirectionVersURL('controleurFrontal.php?action=afficherDetail&controleur=utilisateur&login='.$utilisateur->getLogin());
+        MessageFlash::ajouter("success","User ".$utilisateur->getLogin()." updated !");
+        self::redirect('/info&login='.$utilisateur->getLogin());
     }
 
     /** ------------------- DELETE ------------------- */
 
-    public static function supprimer(): void
+    public static function delete(): void
     {
         $login = $_REQUEST['login'];
 
         // vérifiez que tous les champs obligatoires du formulaire ont été transmis
         if (is_null($login)) {
-            MessageFlash::ajouter("danger","Login inexistant");
-            self::redirectionVersURL('controleurFrontal.php?action=afficherListe&controleur=utilisateur');
+            MessageFlash::ajouter("danger","Login is empty");
+            self::redirect('/showList');
             return;
         }
 
         // Vérifiez que le login existe
         if (is_null((new UtilisateurRepository())->recupererParClePrimaire($login))){
-            MessageFlash::ajouter("danger","Aucun utilisateur " . $login);
-            self::redirectionVersURL('controleurFrontal.php?action=afficherListe&controleur=utilisateur');
+            MessageFlash::ajouter("danger","No User Found");
+            self::redirect('/showList');
             return;
         }
-
 
         // Vérifiez que l’utilisateur supprimé correspond à l’utilisateur connecté
         if (!ConnexionUtilisateur::estUtilisateur($login) && !ConnexionUtilisateur::estAdministrateur()){
-            MessageFlash::ajouter("warning","La mise à jour n’est possible que pour l’utilisateur connecté");
-            self::redirectionVersURL('controleurFrontal.php?action=afficherListe&controleur=utilisateur');
+            MessageFlash::ajouter("warning","You don't have permission to delete user ".$login);
+            self::redirect('/showList');
             return;
         }
-
 
         // Déconnecte l'utilisateur si il correspond à celui supprimé
         if (ConnexionUtilisateur::estUtilisateur($login) && ConnexionUtilisateur::estConnecte())
             ConnexionUtilisateur::deconnecter();
 
         if ((new UtilisateurRepository())->supprimer($login))
-            MessageFlash::ajouter("success","L'utilisateur a bien été supprimé !");
+            MessageFlash::ajouter("success","User ".$login." deleted !");
 
-        else MessageFlash::ajouter("danger","La supression n'a pas pu avoir lieu.");
+        else MessageFlash::ajouter("danger","Error trying to delete user ".$login);
 
-        self::redirectionVersURL('controleurFrontal.php?action=afficherListe&controleur=utilisateur');
+        self::redirect('/showList');
     }
 
     /** ------------------- SESSIONS (CONNEXION) ------------------- */
 
-    public static function afficherFormulaireConnexion(): void
+    public static function showFormConnect(): void
     {
         $parametres = array(
             "pagetitle" => "Connexion",
             "cheminVueBody" =>  "/../utilisateur/formulaireConnexion.php"
         );
 
-        self::afficherVue("web/vueGenerale.php", $parametres);
+        self::afficherVueGenerale($parametres);
     }
 
-    public static function connecter(): void
+    public static function connect(): void
     {
         $login = $_REQUEST['login'];
         $mdp = $_REQUEST['mdp'];
@@ -283,56 +279,54 @@ class ControleurUtilisateur extends ControleurGenerique
 
         if (is_null($login) || is_null($mdp)){
             MessageFlash::ajouter("warning","Login et/ou mot de passe manquant");
-            self::redirectionVersURL('controleurFrontal.php?action=afficherFormulaireConnexion&controleur=utilisateur');
+            self::redirect('/showFormConnect');
             return;
         }
 
         if (is_null($utilisateur)) {
             MessageFlash::ajouter("danger","Cette utilisateur n'existe pas");
-            self::redirectionVersURL('controleurFrontal.php?action=afficherFormulaireConnexion&controleur=utilisateur');
+            self::redirect('/showFormConnect');
             return;
         }
 
         if (!MotDePasse::verifier($mdp, $utilisateur->formatTableau()['mdpHacheTag'])) {
             MessageFlash::ajouter("danger","Mot de passe erroné");
-            self::redirectionVersURL('controleurFrontal.php?action=afficherFormulaireConnexion&controleur=utilisateur');
+            self::redirect('/showFormConnect');
             return;
         }
 
         ConnexionUtilisateur::connecter($login);
 
         MessageFlash::ajouter("success","Bienvenue ".$login." !");
-        self::redirectionVersURL('controleurFrontal.php?action=afficherListe&controleur=utilisateur');
+        self::redirect('/showFormConnect');
     }
 
     /** ------------------- SESSIONS (DECONNEXION) ------------------- */
 
-    public static function deconnecter(): void {
+    public static function deconnect(): void {
         ConnexionUtilisateur::deconnecter();
-        MessageFlash::ajouter("success","Utilisateur déconnecté.");
-        self::redirectionVersURL('controleurFrontal.php?action=afficherListe&controleur=utilisateur');
+        MessageFlash::ajouter("success","User Disconnected");
+        self::home();
     }
 
     /** ------------------- VERIFICATION MAIL ------------------- */
 
-    public static function validerEmail() : void
+    public static function validateEmail() : void
     {
         $login = $_REQUEST['login']; $nonce = $_REQUEST['nonce'];
 
         if (is_null($login) || is_null($nonce)){
             MessageFlash::ajouter("warning","Login et/ou mot de passe manquant");
-            self::redirectionVersURL('controleurFrontal.php?action=afficherListe&controleur=utilisateur');
             return;
         }
 
         if (!VerificationEmail::traiterEmailValidation($login,$nonce)){
             MessageFlash::ajouter("warning","Problème lors du traitement de la validation par email");
-            self::redirectionVersURL('controleurFrontal.php?action=afficherListe&controleur=utilisateur');
             return;
         }
 
         MessageFlash::ajouter("success","Votre vérification par mail a bien été confirmée !");
-        self::redirectionVersURL('controleurFrontal.php?action=afficherDetail&controleur=utilisateur&login='.$login);
+        self::home();
     }
 
     /** ------------------- COOKIES ------------------- */
@@ -348,4 +342,5 @@ class ControleurUtilisateur extends ControleurGenerique
         return $valeur;
     }
     */
+
 }

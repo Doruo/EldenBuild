@@ -60,7 +60,7 @@
                     echo '<li class="nav-item"><h2 class="navbar-text">-</h2></li>';
                     echo
                     '<li class="nav-item">
-                        <a class="nav-link" href="/afficherFormulaireCreation">
+                        <a class="nav-link" href="/showFormCreate">
                             <img class="img-icon" src="/ressources/images/icons/hosts-mirror-trick.png" alt="hosts-mirror-trick"/>  
                             Sign Up
                         </a>
@@ -73,7 +73,7 @@
                     echo '<li class="nav-item"><h2 class="navbar-text">-</h2></li>';
 
                     echo '<li class="nav-item">
-                            <a class="nav-link" href="/afficherFormulaireConnexion">
+                            <a class="nav-link" href="/showFormConnect">
                                 <img class="img-icon" src="/ressources/images/icons/carian-inverted-statue.webp" alt="carian-inverted-statue"/>  
                                 Log In
                             </a> 
@@ -88,7 +88,7 @@
 
                 <!-- USERS -->
                 <li class="nav-item hidden">
-                    <a class="nav-link" href="/afficherListe">
+                    <a class="nav-link" href="/showList">
                         <img class="img-icon" src="/ressources/images/icons/furlcalling_finger_remedy.webp" alt="furlcalling_finger_remedy"/>
                         Users
                     </a>
@@ -98,7 +98,7 @@
 
                 <!-- INFO REQUETE API -->
                 <li class="nav-item hidden">
-                    <a class="nav-link" href="/info">
+                    <a class="nav-link" href="/info&controleur=equipement">
                         <img class="img-icon" src="/ressources/images/icons/telescope.webp" alt="telescope"/>
                         Test API
                     </a>
@@ -106,7 +106,6 @@
             </ul>
         </div>
     </nav>
-
 
     <!-- MESSAGES FLASH -->
     <div>
