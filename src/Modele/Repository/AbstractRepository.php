@@ -63,6 +63,20 @@ abstract class AbstractRepository
         return $this->construireDepuisTableau($objetFormatTableau);
     }
 
+    public function recupererTableauParClePrimaire(string $login) : array
+    {
+        $sql = "SELECT * FROM " . $this->getNomTable() . " WHERE " . $this->getNomClePrimaire() . " LIKE :valeurClePrimaire";
+
+        $req_prep = ConnexionBaseDeDonnees::getInstance()->getPdo()->prepare($sql);
+        // passage de la valeur de name_tag
+        $values = array("login_tag" => $login."%");
+        // exécution de la requête préparée
+        $req_prep->execute($values);
+        $req_prep->setFetchMode(PDO::FETCH_OBJ);
+        // renvoi du tableau de résultats
+        return $req_prep->fetch();
+    }
+
     /** ------------------- UPDATE ------------------- */
 
     public function mettreAJour(AbstractDataObject $object): void

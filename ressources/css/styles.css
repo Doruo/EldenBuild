@@ -24,6 +24,7 @@ body {
     flex-direction: column;
     align-items: center;
     font-family: 'dark-souls', serif;
+    color: #343a40;
 
     /* BACKGROUND */
     background-size: cover;
@@ -38,6 +39,12 @@ body {
 header{
     position: sticky;
     top:0;
+}
+
+/* ------------------------- MAIN ------------------------- */
+
+main{
+    width: 100%;
 }
 
 /* ------------------------- NAVBAR ------------------------- */
@@ -127,13 +134,81 @@ footer {
 
 /* ------------------------- FORMULAIRES ------------------------- */
 
-.form-group{
-    margin: 10%;
+form {
+    max-width: 25%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #2a2a2a;
+    border-radius: 30px;
+    box-shadow: 5px 5px 5px white;
+}
+
+#build-form{
+    max-width: 80%;
+}
+
+.formulaire{
+    background-color: #1a1a1a;
+}
+
+legend{
+    color: white;
+}
+
+section {
+    margin-bottom: 20px;
+    color: white;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="number"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+.equipment, .stats {
+    display: flex;
+    justify-content: space-between;
+}
+
+.equipment-category, .stats div {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.equipment-category:last-child, .stats div:last-child {
+    margin-right: 0;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #444;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
 }
 
 .nav-item{
     align-content: center;
 }
+
+/* Formulaires Users */
 
 /* https://philipwalton.github.io/solved-by-flexbox/demos/input-add-ons/ */
 .InputAddOn {
@@ -208,12 +283,10 @@ footer {
 }
 
 /* ------- Media Queries ------- */
-/* ------- (DOIT TJR ETRE A LA FIN DU CSS) ------- */
+/* ------- (DOIT TOUJOURS ETRE A LA FIN) ------- */
 
 @media (max-width: 600px)
 {
-
-
     #titre-princiale{
         font-size: 600%;
         height:50%;

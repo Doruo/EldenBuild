@@ -6,12 +6,12 @@ use App\EldenBuild\Lib\PreferenceControleur;
 abstract class ControleurGenerique {
 
     /** ------------------- AFFICHAGE PRINCIPALE ------------------- */
-    public static function home() : void {
+    public static function home():void {
         self::afficherVueGenerale(array("cheminVueBody" => "/../home/home.php"));
     }
 
     /** ------------------- READ ------------------- */
-    protected abstract static function info(); // *
+    protected abstract static function info():void; // *
 
     /** ------------------- AFFICHAGE VUES ------------------- */
     protected static function afficherVue(string $cheminVue, array $parametres = []): void
@@ -30,11 +30,11 @@ abstract class ControleurGenerique {
     }
 
     /** ------------------- MESSAGES FLASHS ------------------- */
-    public static function redirect(string $url) : void{
+    public static function redirect(string $url):void{
         header("Location: $url");
     }
     /** ------------------- PREFERENCE CONTROLEUR ------------------- */
-    public static function showFormPreference() : void
+    public static function showFormPreference():void
     {
         $parametres = array(
             "pagetitle" => "Formulaire Preference",
@@ -44,7 +44,7 @@ abstract class ControleurGenerique {
         self::afficherVue('web/vueGenerale.php',$parametres);
     }
 
-    public static function registerPreference() : void
+    public static function registerPreference():void
     {
         $controleurDefaut = $_REQUEST['controleur_defaut'];
 

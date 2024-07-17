@@ -9,6 +9,7 @@ const menuToggle = document.getElementById('menu-toggle');
 menuToggle.addEventListener('click', function () {
 
     if (menuToggle.classList.contains("menuOff")) {
+
         menuToggle.textContent = "▻";
         menuToggle.classList.remove("menuOff");
         menuToggle.classList.add("menuOn");
@@ -21,19 +22,19 @@ menuToggle.addEventListener('click', function () {
             item.classList.remove('slide-out');
             item.classList.add('slide-in');
         });
-    } else if (menuToggle.classList.contains("menuOn")) {
+    }
+    else if (menuToggle.classList.contains("menuOn")) {
+
         menuToggle.textContent = "▽";
         menuToggle.classList.remove("menuOn");
         menuToggle.classList.add("menuOff");
 
         let items = document.querySelectorAll('.navbar-nav .nav-item.visible');
-
         items.forEach(function (item) {
+            item.classList.remove('visible');
             item.classList.remove('slide-in');
             item.classList.add('slide-out');
-            setTimeout(function () {
-                item.classList.add('hidden');
-            }, 500); // Durée de l'animation
+            setTimeout(() => item.classList.add('hidden'), 500); // Durée de l'animation
         });
     }
 });
@@ -84,8 +85,8 @@ let lienTestApi = document.getElementById('testAPI-link');
 
 if (lienTestApi !== null){
     lienTestApi.addEventListener('click', () =>
-        getEquipment("weapons")
-            .then(reponse => addItemCard(reponse[0]))
+        getEquipment("weapons","name","Hand")
+            .then(data => addItemCard(data[randomMinMax(0,data.length)]))
     );
 }
 

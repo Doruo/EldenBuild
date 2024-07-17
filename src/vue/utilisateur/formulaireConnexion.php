@@ -1,5 +1,5 @@
 
-<div class="formulaire form-group">
+
 <form method="<?php echo App\EldenBuild\Configuration\ConfigurationSite::getMethodeForm();?>">
 
     <fieldset>
@@ -28,4 +28,3 @@
     </fieldset>
 
 </form>
-</div>

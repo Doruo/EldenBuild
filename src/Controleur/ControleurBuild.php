@@ -4,32 +4,36 @@ namespace App\EldenBuild\Controleur;
 
 class ControleurBuild extends ControleurBase
 {
-    protected static function info()
+    public static function info():void
     {
         // TODO: Implement info() method.
     }
 
-    protected static function showFormCreate()
+    public static function showFormCreate():void
     {
-        // TODO: Implement showFormCreate() method.
+        $parametres = array(
+            "pagetitle" => "New Build",
+            "cheminVueBody" =>  "/../build/formulaireCreation.php"
+        );
+        self::afficherVueGenerale($parametres);
     }
 
-    protected static function create()
+    public static function create() : void
     {
         // TODO: Implement create() method.
     }
 
-    protected static function showFormModify()
+    public static function showFormModify():void
     {
         // TODO: Implement showFormModify() method.
     }
 
-    protected static function modify()
+    public static function modify():void
     {
         // TODO: Implement modify() method.
     }
 
-    protected static function delete()
+    public static function delete():void
     {
         // TODO: Implement delete() method.
     }

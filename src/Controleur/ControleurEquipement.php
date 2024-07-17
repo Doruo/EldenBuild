@@ -13,12 +13,12 @@ class ControleurEquipement extends ControleurGenerique
         self::afficherVueGenerale($parametres);
     }
 
-    protected static function add() : void
+    protected static function add():void
     {
         // TODO: Implement info() method.
     }
 
-    protected static function remove() : void
+    protected static function remove():void
     {
         // TODO: Implement info() method.
     }
