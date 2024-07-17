@@ -69,7 +69,8 @@
                 ?>
 
                 <!-- CONNEXION -->
-                <?php if (!ConnexionUtilisateur::estConnecte()){
+                <?php
+                if (!ConnexionUtilisateur::estConnecte()){
                     echo '<li class="nav-item"><h2 class="navbar-text">-</h2></li>';
 
                     echo '<li class="nav-item">
@@ -79,6 +80,23 @@
                             </a> 
                           </li>';
                 }
+                else echo '
+                            <!-- PROFILE -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="/info&login='.ConnexionUtilisateur::getLoginUtilisateurConnecte().'">
+                                    <img class="img-icon" src="/ressources/images/icons/carian-inverted-statue.webp" alt="carian-inverted-statue"/>  
+                                    Profile
+                                </a> 
+                            </li>   
+                            
+                            <!-- DECONNEXION -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="/disconnect">
+                                    <img class="img-icon" src="/ressources/images/icons/memory-of-grace.webp" alt="memory-of-grace"/>  
+                                    Disconnect
+                                </a> 
+                            </li>  
+                            ';
                 ?>
 
                 <!-- MENU -->
@@ -124,6 +142,12 @@
         }
         ?>
     </div>
+
+    <?php
+        if(ConnexionUtilisateur::estAdministrateur()){
+            echo'<div><h3>ADMIN</h3></div>';
+        }
+    ?>
 
 </header>
 

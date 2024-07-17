@@ -302,7 +302,7 @@ class ControleurUtilisateur extends ControleurBase
 
     /** ------------------- SESSIONS (DECONNEXION) ------------------- */
 
-    public static function deconnect(): void {
+    public static function disconnect(): void {
         ConnexionUtilisateur::deconnecter();
         MessageFlash::ajouter("success","User Disconnected");
         self::home();

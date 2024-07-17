@@ -7,16 +7,16 @@ use App\EldenBuild\Lib\ConnexionUtilisateur;
 
     <fieldset>
 
-        <legend><h1>Signing Up</h1></legend>
+        <legend><h1><U>Signing Up</U></h1></legend>
 
         <!-- ENTÊTE -->
         <input type="hidden" name="controleur" value="utilisateur">
-        <input type="hidden" name="action" value="creerDepuisFormulaire">
+        <input type="hidden" name="action" value="create">
 
         <!-- LOGIN -->
         <p class="InputAddOn">
             <label class="InputAddOn-item" for="login_id">Login&#42;</label>
-            <input class="InputAddOn-field" type="text" placeholder="Doruo" name="login" id="login_id" required>
+            <input class="InputAddOn-field" type="text" placeholder="" name="login" id="login_id" required>
         </p>
 
         <!-- MAIL -->
@@ -46,8 +46,8 @@ use App\EldenBuild\Lib\ConnexionUtilisateur;
         ?>
 
         <!-- ENOVOYER -->
-        <p>
-            <input class="InputAddOn-field" type="submit" value="Create" />
+        <p class="InputAddOn">
+            <input class="InputAddOn-field" type="submit" value="Create Account" />
         </p>
     </fieldset>
 

@@ -37,8 +37,9 @@ body {
 /* ------------------------- HEADER ------------------------- */
 
 header{
-    position: sticky;
+    position: relative;
     top:0;
+    padding-bottom: 3%;
 }
 
 /* ------------------------- MAIN ------------------------- */
@@ -213,7 +214,7 @@ button:hover {
 /* https://philipwalton.github.io/solved-by-flexbox/demos/input-add-ons/ */
 .InputAddOn {
     display: flex;
-    margin-bottom: 1.5em;
+    margin-bottom: 2.5em;
 }
 
 .InputAddOn-field {
@@ -236,15 +237,13 @@ button:hover {
 .InputAddOn-field,
 .InputAddOn-item {
     border: 1px solid rgba(230, 228, 221, 0.25);
+    border-radius: 10px 10px;
     padding: 0.5em 0.75em;
+    margin-right: 4%;
 }
 .InputAddOn-field:first-child,
 .InputAddOn-item:first-child {
-    border-radius: 2px 0 0 2px;
-}
-.InputAddOn-field:last-child,
-.InputAddOn-item:last-child {
-    border-radius: 0 2px 2px 0;
+    border-radius: 10px 10px;
 }
 
 /* ------------------------- BOOSTRAP ALERTS ------------------------- */
