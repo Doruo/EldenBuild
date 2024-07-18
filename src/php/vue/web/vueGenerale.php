@@ -24,11 +24,11 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
     <!-- stylesheet CSS -->
-    <link href="/ressources/css/styles.css" rel="stylesheet">
+    <link href="/src/css/styles.css" rel="stylesheet">
 
     <!-- scripts JS -->
-    <script defer="defer" src="/ressources/js/main.js"></script>
-    <script defer="defer" src="/ressources/js/requests.js"></script>
+    <script defer="defer" src="/src/js/main.js"></script>
+    <script defer="defer" src="/src/js/requests.js"></script>
 
 </head>
 

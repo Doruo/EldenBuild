@@ -4,7 +4,7 @@ RewriteBase /
 # Réécrire l'URL pour capturer la partie après le slash et la passer en tant que paramètre action
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ src/vue/web/controleurFrontal.php?action=$1 [L,QSA]
+RewriteRule ^(.*)$ src/php/vue/web/controleurFrontal.php?action=$1 [L,QSA]
 
 # Réécriture de l'URL pour d'autres actions
-RewriteRule ^([a-zA-Z0-9_-]+)$ src/vue/web/controleurFrontal.php?action=$1 [L,QSA]
+RewriteRule ^([a-zA-Z0-9_-]+)$ src/php/vue/web/controleurFrontal.php?action=$1 [L,QSA]

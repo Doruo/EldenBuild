@@ -49,9 +49,9 @@ const images = [
     `${IMAGES_BACKGROUNDS_URL}/wyvern.webp`
 ];
 
-let indexImages = 0;
-changeBackGround("liurnia");
 
+let indexImages = 0;
+changeBackGround('liurnia');
 // Defilement arrière-plan
 // const chb = setInterval(changeBackGroundSuivant, 20000);
 
