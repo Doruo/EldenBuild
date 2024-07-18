@@ -51,7 +51,8 @@
                 <li class="nav-item navbar-text">
                     <div>
                         <label for="search-input"></label>
-                        <input type="text" id="search-input" placeholder="🔍 Build or User"/>
+                        <input type="text" id="search-input" autocomplete="false" placeholder="🔍 Build or User"/>
+                        <div id="autocompletion"></div>
                     </div>
                 </li>
 
@@ -62,7 +63,7 @@
                     '<li class="nav-item">
                         <a class="nav-link" href="/showFormCreate">
                             <img class="img-icon" src="/ressources/images/icons/hosts-mirror-trick.png" alt="hosts-mirror-trick"/>  
-                            Sign Up
+                            Sign up
                         </a>
                     </li>';
                 }
@@ -76,7 +77,7 @@
                     echo '<li class="nav-item">
                             <a class="nav-link" href="/showFormConnect">
                                 <img class="img-icon" src="/ressources/images/icons/carian-inverted-statue.webp" alt="carian-inverted-statue"/>  
-                                Log In
+                                Sign in
                             </a> 
                           </li>';
                 }
@@ -93,7 +94,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/disconnect">
                                     <img class="img-icon" src="/ressources/images/icons/memory-of-grace.webp" alt="memory-of-grace"/>  
-                                    Disconnect
+                                    Sign out
                                 </a> 
                             </li>  
                             ';
@@ -104,11 +105,24 @@
                     <a class="nav-link menuOff" id="menu-toggle">▽</a>
                 </li>
 
+                <li class="nav-item navbar-text hidden"><h2 class="navbar-text">-</h2></li>
+
+                <!-- PARAMETRES -->
+                <li class="nav-item hidden">
+                    <a class="nav-link" onclick="optionsToolTip(event)">
+                        <img class="img-icon" src="/ressources/images/icons/telescope.webp" alt="telescope"/>
+                        Options
+                    </a>
+                    <div class="tooltip-content" id="param-content">
+                        Coming Soon !
+                    </div>
+                </li>
+
                 <!-- USERS -->
                 <li class="nav-item hidden">
                     <a class="nav-link" href="/showList">
                         <img class="img-icon" src="/ressources/images/icons/furlcalling_finger_remedy.webp" alt="furlcalling_finger_remedy"/>
-                        Users
+                        Test Users
                     </a>
                 </li>
 
@@ -121,6 +135,8 @@
                         Test API
                     </a>
                 </li>
+
+
             </ul>
         </div>
     </nav>
@@ -158,7 +174,7 @@
 
 
 <footer class="bg-dark">
-    &copy;2024 - WORK IN PROGRESS - Marc Haye.
+    &copy;2024 - WORK IN PROGRESS -
 </footer>
 
 </body>

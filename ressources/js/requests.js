@@ -3,9 +3,9 @@
 
 const ROOT_API_URL = "https://eldenring.fanapis.com/api";
 
-async function getEquipment (type, param = "name", name = "") {
+async function getEquipment (type, name = "", param = "name",limit = 5) {
     try {
-        const url = `${ROOT_API_URL}/${type}?${param}=${name}`;
+        const url = `${ROOT_API_URL}/${type}?${param}=${name}&limit=${limit}`;
         console.log(url);
         let req = await fetch(url);
         let resultat = await req.json();

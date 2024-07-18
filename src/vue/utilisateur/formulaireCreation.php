@@ -7,7 +7,7 @@ use App\EldenBuild\Lib\ConnexionUtilisateur;
 
     <fieldset>
 
-        <legend><h1><U>Signing Up</U></h1></legend>
+        <legend><h1><U>Sign up</U></h1></legend>
 
         <!-- ENTÊTE -->
         <input type="hidden" name="controleur" value="utilisateur">

@@ -104,6 +104,10 @@ h1,h3 {
 
 /* Conteneurs */
 
+.card{
+    width: 50%;
+}
+
 .card-title{
     font-size: 1.25rem;
 }
@@ -142,6 +146,7 @@ form {
     background-color: #2a2a2a;
     border-radius: 30px;
     box-shadow: 5px 5px 5px white;
+    text-align: center;
 }
 
 #build-form{
@@ -167,7 +172,7 @@ label {
 }
 
 input[type="text"], input[type="number"], textarea {
-    width: 100%;
+    width: 50%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #444;
@@ -244,6 +249,20 @@ button:hover {
 .InputAddOn-field:first-child,
 .InputAddOn-item:first-child {
     border-radius: 10px 10px;
+}
+
+/* ------------------------- BULLE PARAM ------------------------- */
+
+.tooltip-content {
+    display: none; /* Caché par défaut */
+    position: absolute;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    z-index: 1000;
 }
 
 /* ------------------------- BOOSTRAP ALERTS ------------------------- */

@@ -4,7 +4,7 @@
 
     <fieldset>
 
-        <legend><h1><U>Log In</U></h1></legend>
+        <legend><h1><U>Sign in</U></h1></legend>
 
         <input type="hidden" name="controleur" value="utilisateur">
         <input type="hidden" name="action" value="connect">
