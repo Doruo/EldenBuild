@@ -15,6 +15,12 @@
             <input class="InputAddOn-field" type="text" placeholder="" name="login" id="login_id" required>
         </p>
 
+        <!-- Mail -->
+        <p class="InputAddOn">
+            <label class="InputAddOn-item" for="mail_id">Email&#42;</label>
+            <input class="InputAddOn-field" type="email" placeholder="" name="mail" id="mail_id" required>
+        </p>
+
         <!-- MOT DE PASSE -->
         <p class="InputAddOn">
             <label class="InputAddOn-item" for="mdp_id">Password&#42;</label>

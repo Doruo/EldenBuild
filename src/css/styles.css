@@ -181,6 +181,10 @@ input[type="text"], input[type="number"], textarea {
     color: #fff;
 }
 
+input#build-name{
+    width: 25%;
+}
+
 .equipment, .stats {
     display: flex;
     justify-content: space-between;

@@ -1,3 +1,5 @@
+<?php use \App\EldenBuild\Lib\ConnexionUtilisateur; ?>
+
 <div id="conteneurActions" class="container mt-5">
 
     <h1 id="titre-princiale" >-Elden Build-</h1>
@@ -13,7 +15,7 @@
 
                     <h2 class="card-title">Create a New Build</h2>
                     <p class="card-text">Start Your Very Own Build.</p>
-                    <a href="/showFormCreate&controleur=build" class="btn btn-primary">Create</a>
+                    <a href="<?=(ConnexionUtilisateur::estConnecte()) ? "/showFormCreate&controleur=build" : "/showFormCreate"?>" class="btn btn-primary">Create</a>
 
                 </div>
 

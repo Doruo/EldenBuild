@@ -159,16 +159,12 @@
         ?>
     </div>
 
-    <?php
-        if(ConnexionUtilisateur::estAdministrateur()){
-            echo'<div><h3>ADMIN</h3></div>';
-        }
-    ?>
+    <?=(ConnexionUtilisateur::estAdministrateur()) ? "<div><h3>ADMIN</h3></div>" : ""?>
 
 </header>
 
 <main>
-    <?php if (ConfigurationSite::getDebug()) echo "<div><h1>MODE DEBUG ACTIF</h1></div>";
+    <?=(ConfigurationSite::getDebug()) ? "<div><h1>MODE DEBUG ACTIF</h1></div>" : "";
     /** @var $cheminVueBody */ require __DIR__ . $cheminVueBody ?>
 </main>
 

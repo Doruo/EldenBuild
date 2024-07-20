@@ -6,7 +6,7 @@ use App\EldenBuild\Lib\ConnexionUtilisateur;
 
     <fieldset>
 
-        <legend><h1>Modifier un Utilisateur :</h1></legend>
+        <legend><h1>Modify User</h1></legend>
 
         <!-- ENTÊTE -->
         <input type="hidden" name="action" value="mettreAJour">

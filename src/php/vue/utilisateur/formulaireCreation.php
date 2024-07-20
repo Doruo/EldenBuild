@@ -45,6 +45,10 @@ use App\EldenBuild\Lib\ConnexionUtilisateur;
                 </p>';
         ?>
 
+        <p class="InputAddOn">
+            <a class="alert-link" href="/showFormConnect">Already have an account ?</a>
+        </p>
+
         <!-- ENOVOYER -->
         <p class="InputAddOn">
             <input class="InputAddOn-field" type="submit" value="Create Account" />

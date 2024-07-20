@@ -177,14 +177,14 @@ class ControleurUtilisateur extends ControleurBase
 
         // Vérifiez que le login existe
         if (is_null($utilisateur)){
-            MessageFlash::ajouter("warning","Aucun Utilisateur ".$login);
+            MessageFlash::ajouter("warning","No user found");
             self::redirect('/showFormModify&login='.$login);
             return;
         }
 
         // Vérifiez que l’utilisateur mis-à-jour correspond à l’utilisateur connecté
         if (!$utilisateurEstAdmin && !ConnexionUtilisateur::estUtilisateur($login)){
-            MessageFlash::ajouter("warning","La mise à jour n’est possible que pour l’utilisateur connecté ou par un admin");
+            MessageFlash::ajouter("warning","Action only possible by admin");
             self::redirect('/showFormModify&login='.$login);
             return;
         }
@@ -271,16 +271,32 @@ class ControleurUtilisateur extends ControleurBase
     public static function connect(): void
     {
         $login = $_REQUEST['login'];
+        $mail = $_REQUEST['mail'];
         $mdp = $_REQUEST['mdp'];
 
         /** @var Utilisateur $utilisateur */
         $utilisateur = (new UtilisateurRepository)->recupererParClePrimaire($login);
 
         if (is_null($login) || is_null($mdp)){
-            MessageFlash::ajouter("warning","Login et/ou mot de passe manquant");
+            MessageFlash::ajouter("warning","Login or password missing");
             self::redirect('/showFormConnect');
             return;
         }
+
+        if (is_null($mail)) {
+            MessageFlash::ajouter("danger","Email is empty");
+            self::redirect('/showFormConnect');
+            return;
+        }
+
+        // Verif Adr mail valide
+        /*
+        if (!filter_var($_REQUEST['email'], FILTER_VALIDATE_EMAIL)) {
+            MessageFlash::ajouter("warning","Veuillez saisir une adresse email valide");
+            self::redirectionVersURL('controleurFrontal.php?action=creerDepuisFormulaire&controleur=utilisateur');
+            return;
+        }*/
+
 
         if (is_null($utilisateur)) {
             MessageFlash::ajouter("danger","Cette utilisateur n'existe pas");
