@@ -44,7 +44,7 @@
 
                 <div class="card-body">
 
-                    <h2 class="card-title"><u>Search Builds</u></h2>
+                    <h2 class="card-title"><u>Sort Builds</u></h2>
                     <p class="card-text">Search & sort builds.</p>
                     <a href="#" class="btn btn-primary">Search</a>
 

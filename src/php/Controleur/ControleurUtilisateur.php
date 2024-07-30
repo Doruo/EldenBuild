@@ -304,7 +304,7 @@ class ControleurUtilisateur extends ControleurBase
             return;
         }
 
-        if ($utilisateur->getEmail() != $mail ||$utilisateur->getEmailAValider() != $mail) {
+        if ($utilisateur->getEmail() != $mail && $utilisateur->getEmailAValider() != $mail) {
             MessageFlash::ajouter("danger","Wrong mail adress");
             self::redirect('/showFormConnect');
             return;

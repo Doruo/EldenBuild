@@ -18,7 +18,7 @@
         <!-- Mail -->
         <p class="InputAddOn">
             <label class="InputAddOn-item" for="mail_id">Email&#42;</label>
-            <input class="InputAddOn-field" type="email" placeholder="" name="mail" id="mail_id" required>
+            <input class="InputAddOn-field" type="email" placeholder="toto@yopmail.com" name="mail" id="mail_id" required>
         </p>
 
         <!-- MOT DE PASSE -->
