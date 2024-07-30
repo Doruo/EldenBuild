@@ -94,7 +94,7 @@ main{
 #sous-titre{
     font-size: 2.5rem;
     text-shadow: 2px 2px white;
-    color: #000000;
+    color: black;
 }
 
 /* ------------------------- TEXTES ------------------------- */
@@ -124,8 +124,8 @@ h1,h3 {
 /* ------------------------- FOOTER ------------------------- */
 
 footer {
-    background-color: #343a40; /* Same as bg-dark in Bootstrap */
-    color: #ffffff; /* Text color white */
+    background-color: #343a40;
+    color: white;
     padding: 1%;
     text-align: center;
     margin: 8%;
@@ -205,7 +205,7 @@ button {
     border: none;
     border-radius: 5px;
     background-color: #444;
-    color: #fff;
+    color: white;
     font-size: 16px;
     cursor: pointer;
 }
@@ -255,12 +255,45 @@ button:hover {
     border-radius: 10px 10px;
 }
 
+/* ------------------------- PROFILE ------------------------- */
+
+#profile{
+    width: 50%;
+}
+
+/* ------------------------- BUILDS ------------------------- */
+
+#slotHelm{
+    background-image: url("/ressources/images/buttons/armor-helm-slot.webp");
+    background-repeat: no-repeat;
+}
+
+#slotChest{
+    background-image: url("/ressources/images/buttons/armor-chest-slot.webp");
+    background-repeat: no-repeat;
+}
+
+#slotGauntlet{
+    background-image: url("/ressources/images/buttons/armor-gauntlet-slot.webp");
+    background-repeat: no-repeat;
+}
+
+#slotLeg{
+    background-image: url("/ressources/images/buttons/armor-leg-slot.webp");
+    background-repeat: no-repeat;
+}
+
+.slotTalisman{
+    background-image: url("/ressources/images/buttons/talisman-slot.webp");
+    background-repeat: no-repeat;
+}
+
 /* ------------------------- BULLE PARAM ------------------------- */
 
 .tooltip-content {
     display: none; /* Caché par défaut */
     position: absolute;
-    background-color: #fff;
+    background-color: white;
     color: #333;
     border: 1px solid #ccc;
     padding: 10px;

@@ -11,7 +11,7 @@ async function getEquipment (type, name = "", param = "name",limit = 5) {
         let resultat = await req.json();
 
         if (resultat.success === true && resultat.data.length > 0) return resultat.data;
-        else console.log("request to API - FAILED");
+        else return false;
     }
     catch (error) {console.log(error);}
 }
