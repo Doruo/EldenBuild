@@ -159,7 +159,7 @@ function addArmorCard(data) {
     const fragment = document.createDocumentFragment();
 
     const card = document.createElement('div');
-    card.className = 'card';
+    card.className = 'card conteneur';
 
     const cardBody = document.createElement('div');
     cardBody.className = 'card-body';

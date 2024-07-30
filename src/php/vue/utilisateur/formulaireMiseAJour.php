@@ -28,8 +28,8 @@ use App\EldenBuild\Lib\ConnexionUtilisateur;
         </p>
 
         <!-- ANCIEN MOT DE PASSE -->
-        <?php if(!ConnexionUtilisateur::estAdministrateur())
-            echo '
+        <?=(!ConnexionUtilisateur::estAdministrateur()) ??
+            '
             <p class="InputAddOn">
                 <label class="InputAddOn-item" for="ancienMdp_id">Ancien Mot de Passe&#42;</label>
                 <input class="InputAddOn-field" type="password" name="ancienMdp" id="ancienMdp_id" required value="">
@@ -51,7 +51,7 @@ use App\EldenBuild\Lib\ConnexionUtilisateur;
         </p>
 
         <!-- ADMIN -->
-        <?php if(ConnexionUtilisateur::estAdministrateur())
+        <?php if (ConnexionUtilisateur::estAdministrateur())
             echo '
         <p class="InputAddOn">
             <label class="InputAddOn-item" for="estAdmin_id">Admin</label>

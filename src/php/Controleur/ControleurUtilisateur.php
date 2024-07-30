@@ -165,7 +165,7 @@ class ControleurUtilisateur extends ControleurBase
         $mail = $_REQUEST['email'];
 
         // vérifiez que tous les champs obligatoires du formulaire ont été transmis
-        if (is_null($login) || is_null($mdp) || is_null($mdp2) || (!$utilisateurEstAdmin && is_null($ancienMdp)))
+        if (is_null($login) || is_null($mdp) || is_null($mdp2) || is_null($mail) ||(!$utilisateurEstAdmin && is_null($ancienMdp)))
         {
             MessageFlash::ajouter("warning","Please fill all necessary fields");
             self::redirect('/showFormModify&login='.$login);
@@ -299,13 +299,19 @@ class ControleurUtilisateur extends ControleurBase
 
 
         if (is_null($utilisateur)) {
-            MessageFlash::ajouter("danger","Cette utilisateur n'existe pas");
+            MessageFlash::ajouter("danger","This user does not exist");
+            self::redirect('/showFormConnect');
+            return;
+        }
+
+        if ($utilisateur->getEmail() != $mail ||$utilisateur->getEmailAValider() != $mail) {
+            MessageFlash::ajouter("danger","Wrong mail adress");
             self::redirect('/showFormConnect');
             return;
         }
 
         if (!MotDePasse::verifier($mdp, $utilisateur->formatTableau()['mdpHacheTag'])) {
-            MessageFlash::ajouter("danger","Mot de passe erroné");
+            MessageFlash::ajouter("danger","Wrong password");
             self::redirect('/showFormConnect');
             return;
         }
@@ -313,7 +319,7 @@ class ControleurUtilisateur extends ControleurBase
         ConnexionUtilisateur::connecter($login);
 
         MessageFlash::ajouter("success","Bienvenue ".$login." !");
-        self::redirect('/showFormConnect');
+        self::redirect('/home');
     }
 
     /** ------------------- SESSIONS (DECONNEXION) ------------------- */

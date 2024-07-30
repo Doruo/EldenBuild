@@ -9,14 +9,13 @@
 
         <div class="col-md-4">
 
-            <div class="card">
+            <div class="conteneur">
 
                 <div class="card-body">
 
-                    <h2 class="card-title">Create a New Build</h2>
-                    <p class="card-text">Start Your Very Own Build.</p>
+                    <h2 class="card-title"><u>Create a New Build</u></h2>
+                    <p class="card-text">Start your very own build.</p>
                     <a href="<?=(ConnexionUtilisateur::estConnecte()) ? "/showFormCreate&controleur=build" : "/showFormCreate"?>" class="btn btn-primary">Create</a>
-
                 </div>
 
             </div>
@@ -25,14 +24,12 @@
 
         <div class="col-md-4">
 
-            <div class="card">
+            <div class="conteneur">
 
                 <div class="card-body">
 
-                    <h2 class="card-title">Consulter les Builds</h2>
-
-                    <p class="card-text">Explore Builds Shared by Other Users.</p>
-
+                    <h2 class="card-title"><u>Consult Builds</u></h2>
+                    <p class="card-text">Explore builds shared by others.</p>
                     <a href="#" class="btn btn-primary">Consult</a>
 
                 </div>
@@ -43,12 +40,12 @@
 
         <div class="col-md-4">
 
-            <div class="card">
+            <div class="conteneur">
 
                 <div class="card-body">
 
-                    <h2 class="card-title">Search Builds</h2>
-                    <p class="card-text">Search & Sort Builds.</p>
+                    <h2 class="card-title"><u>Search Builds</u></h2>
+                    <p class="card-text">Search & sort builds.</p>
                     <a href="#" class="btn btn-primary">Search</a>
 
                 </div>

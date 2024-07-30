@@ -58,9 +58,9 @@
 
                 <!-- INSCRIPTION -->
                 <?php if (!ConnexionUtilisateur::estConnecte() || ConnexionUtilisateur::estAdministrateur()){
-                    echo '<li class="nav-item"><h2 class="navbar-text">-</h2></li>';
-                    echo
-                    '<li class="nav-item">
+                    echo '';
+                    echo '<li class="nav-item"><h2 class="navbar-text">-</h2></li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/showFormCreate">
                             <img class="img-icon" src="/ressources/images/icons/hosts-mirror-trick.png" alt="hosts-mirror-trick"/>  
                             Sign up
@@ -70,18 +70,8 @@
                 ?>
 
                 <!-- CONNEXION -->
-                <?php
-                if (!ConnexionUtilisateur::estConnecte()){
-                    echo '<li class="nav-item"><h2 class="navbar-text">-</h2></li>';
-
-                    echo '<li class="nav-item">
-                            <a class="nav-link" href="/showFormConnect">
-                                <img class="img-icon" src="/ressources/images/icons/carian-inverted-statue.webp" alt="carian-inverted-statue"/>  
-                                Sign in
-                            </a> 
-                          </li>';
-                }
-                else echo '
+                <?=(ConnexionUtilisateur::estConnecte()) ?
+                    '
                             <!-- PROFILE -->
                             <li class="nav-item">
                                 <a class="nav-link" href="/info&login='.ConnexionUtilisateur::getLoginUtilisateurConnecte().'">
@@ -97,19 +87,27 @@
                                     Sign out
                                 </a> 
                             </li>  
-                            ';
+                            '
+                    :
+                    '
+                    <li class="nav-item"><h2 class="navbar-text">-</h2></li>
+                    <!-- CONNEXION -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/showFormConnect">
+                            <img class="img-icon" src="/ressources/images/icons/carian-inverted-statue.webp" alt="carian-inverted-statue"/>  
+                                Sign in
+                        </a> 
+                    </li>'
                 ?>
 
                 <!-- MENU -->
-                <li class="nav-item">
-                    <a class="nav-link menuOff" id="menu-toggle">▽</a>
-                </li>
+                <li class="nav-item"><a class="nav-link menuOff" id="menu-toggle">▽</a></li>
 
                 <li class="nav-item navbar-text hidden"><h2 class="navbar-text">-</h2></li>
 
                 <!-- PARAMETRES -->
                 <li class="nav-item hidden">
-                    <a class="nav-link" onclick="optionsToolTip(event)">
+                    <a class="nav-link" onclick="optionsToolTip()">
                         <img class="img-icon" src="/ressources/images/icons/telescope.webp" alt="telescope"/>
                         Options
                     </a>
@@ -136,7 +134,6 @@
                     </a>
                 </li>
 
-
             </ul>
         </div>
     </nav>
@@ -159,12 +156,12 @@
         ?>
     </div>
 
-    <?=(ConnexionUtilisateur::estAdministrateur()) ? "<div><h3>ADMIN</h3></div>" : ""?>
+    <?=(ConnexionUtilisateur::estAdministrateur()) ? "<div><h3>ADMIN</h3></div>" : "" ?>
 
 </header>
 
 <main>
-    <?=(ConfigurationSite::getDebug()) ? "<div><h1>MODE DEBUG ACTIF</h1></div>" : "";
+    <?=(ConfigurationSite::getDebug()) ?? "<div><h1>MODE DEBUG ACTIF</h1></div>";
     /** @var $cheminVueBody */ require __DIR__ . $cheminVueBody ?>
 </main>
 

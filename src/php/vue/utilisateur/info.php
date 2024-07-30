@@ -11,8 +11,9 @@ $loginURL = rawurlencode($login);
 
 $mailHTML = htmlspecialchars($utilisateur->getEmail());
 
-/** LOGIN */
+echo '<div id="profile" class="conteneur">';
 
+/** LOGIN */
 echo "<h2>- ".$loginHTML." -</h2>";
 
 /** ADMIN */
@@ -31,3 +32,4 @@ if (ConnexionUtilisateur::estConnecte() && (ConnexionUtilisateur::estUtilisateur
     echo '<h1><a href="/showFormModify&login='.$loginURL.'">Modify Profile</a></h1>';
     echo'<h1><a href="/delete&login='.$loginURL.'">Delete Account</a></h1>';
 }
+echo '</div>';

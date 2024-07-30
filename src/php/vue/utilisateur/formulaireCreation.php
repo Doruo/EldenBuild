@@ -1,9 +1,9 @@
 <?php
 use App\EldenBuild\Lib\ConnexionUtilisateur;
+use App\EldenBuild\Configuration\ConfigurationSite;
 ?>
 
-
-<form method="<?php echo App\EldenBuild\Configuration\ConfigurationSite::getMethodeForm();?>">
+<form method="<?=ConfigurationSite::getMethodeForm();?>">
 
     <fieldset>
 
@@ -36,18 +36,17 @@ use App\EldenBuild\Lib\ConnexionUtilisateur;
         </p>
 
         <!-- ADMIN -->
-        <?php
-        if (ConnexionUtilisateur::estConnecte() && ConnexionUtilisateur::estAdministrateur())
-            echo '        
-                <p class="InputAddOn">
-                    <label class="InputAddOn-item" for="estAdmin_id">Admin</label>
-                    <input class="InputAddOn-field" type="checkbox" placeholder="" name="estAdmin" id="estAdmin_id">
-                </p>';
+        <?= (ConnexionUtilisateur::estConnecte() && ConnexionUtilisateur::estAdministrateur()) ?
+            '<p class="InputAddOn">
+                <label class="InputAddOn-item" for="estAdmin_id">Admin</label>
+                <input class="InputAddOn-field" type="checkbox" placeholder="" name="estAdmin" id="estAdmin_id">
+            </p>'
+            :
+            '
+            <p class="InputAddOn">
+                <a class="alert-link" href="/showFormConnect">Already have an account ?</a>
+            </p>'
         ?>
-
-        <p class="InputAddOn">
-            <a class="alert-link" href="/showFormConnect">Already have an account ?</a>
-        </p>
 
         <!-- ENOVOYER -->
         <p class="InputAddOn">
