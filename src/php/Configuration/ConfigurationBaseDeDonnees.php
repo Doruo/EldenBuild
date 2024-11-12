@@ -7,11 +7,11 @@ abstract class ConfigurationBaseDeDonnees{
     // ou webinfo.iutmontp.univ-montp2.fr
     // pour accéder à webinfo depuis l'extérieur
     static private array $configurationBaseDeDonnees = array(
-        'nomHote' => 'localhost',
-        'nomBaseDeDonnees' => 'eldenbuild',
-        'port' => '3306',
-        'login' => 'root',
-        'motDePasse' => '!Fp!d].d7N]Ir5]C'
+        'nomHote' => getenv('nomHote'),
+        'nomBaseDeDonnees' => getenv('nomBaseDeDonnees'),
+        'port' => getenv('port'),
+        'login' => getenv('login'),
+        'motDePasse' => getenv('motDePasse')
     );
 
     static public function getLogin(): string{
